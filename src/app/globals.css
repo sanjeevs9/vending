@@ -1,8 +1,75 @@
 @import 'tailwindcss';
 
 :root {
-   --background: #ffffff;
-   --foreground: #171717;
+   --2: 2px;
+   --4: 4px;
+   --6: 6px;
+   --8: 8px;
+   --10: 10px;
+   --12: 12px;
+   --14: 14px;
+   --16: 16px;
+   --20: 20px;
+   --24: 24px;
+   --32: 32px;
+   --40: 40px;
+   --44: 44px;
+   --48: 48px;
+   --60: 60px;
+   --64: 64px;
+   --80: 80px;
+   --96: 96px;
+   --120: 120px;
+   --140: 140px;
+   --280: 280px;
+   --8-4: clamp(4px, 2.791px + 100vw * 0.0031, 8px);
+   --12-8: clamp(8px, 6.791px + 100vw * 0.0031, 12px);
+   --16-8: clamp(8px, 5.621px + 100vw * 0.0061, 16px);
+   --16-12: clamp(12px, 10.791px + 100vw * 0.0031, 16px);
+   --20-8: clamp(8px, 4.412px + 100vw * 0.0092, 20px);
+   --20-16: clamp(16px, 14.791px + 100vw * 0.0031, 20px);
+   --24-8: clamp(8px, 3.242px + 100vw * 0.0122, 24px);
+   --24-12: clamp(12px, 8.412px + 100vw * 0.0092, 24px);
+   --24-16: clamp(16px, 13.621px + 100vw * 0.0061, 24px);
+   --32-16: clamp(16px, 11.242px + 100vw * 0.0122, 32px);
+   --32-24: clamp(24px, 21.621px + 100vw * 0.0061, 32px);
+   --40-20: clamp(20px, 14.033px + 100vw * 0.0153, 40px);
+   --40-32: clamp(32px, 29.621px + 100vw * 0.0061, 40px);
+   --48-8: clamp(8px, -3.895px + 100vw * 0.0305, 48px);
+   --48-24: clamp(24px, 16.863px + 100vw * 0.0183, 48px);
+   --48-32: clamp(32px, 27.242px + 100vw * 0.0122, 48px);
+   --60-16: clamp(16px, 2.896px + 100vw * 0.0336, 60px);
+   --60-24: clamp(24px, 13.275px + 100vw * 0.0275, 60px);
+   --64-24: clamp(24px, 12.105px + 100vw * 0.0305, 64px);
+   --64-40: clamp(40px, 32.863px + 100vw * 0.0183, 64px);
+   --64-48: clamp(48px, 43.242px + 100vw * 0.0122, 64px);
+   --64-32: clamp(32px, 22.484px + 100vw * 0.0244, 64px);
+   --80-32: clamp(32px, 17.726px + 100vw * 0.0366, 80px);
+   --80-40: clamp(40px, 28.105px + 100vw * 0.0305, 80px);
+   --80-48: clamp(48px, 38.484px + 100vw * 0.0244, 80px);
+   --80-60: clamp(60px, 54.033px + 100vw * 0.0153, 80px);
+   --80-64: clamp(64px, 59.242px + 100vw * 0.0122, 80px);
+   --96-32: clamp(32px, 12.929px + 100vw * 0.0489, 96px);
+   --96-48: clamp(48px, 33.726px + 100vw * 0.0366, 96px);
+   --108-64: clamp(64px, 50.896px + 100vw * 0.0336, 108px);
+   --120-16: clamp(16px, -14.966px + 100vw * 0.0794, 120px);
+   --120-32: clamp(32px, 5.792px + 100vw * 0.0672, 120px);
+   --120-48: clamp(48px, 26.55px + 100vw * 0.055, 120px);
+   --120-64: clamp(64px, 47.347px + 100vw * 0.0427, 120px);
+   --120-80: clamp(80px, 68.105px + 100vw * 0.0305, 120px);
+   --120-96: clamp(96px, 88.863px + 100vw * 0.0183, 120px);
+   --136-64: clamp(64px, 47.347px + 100vw * 0.0427, 120px);
+   --144-32: clamp(32px, -1.345px + 100vw * 0.0855, 144px);
+   --144-48: clamp(48px, 19.413px + 100vw * 0.0733, 144px);
+   --180-48: clamp(40px, -1.691px + 100vw * 0.1069, 180px);
+   --180-64: clamp(64px, 29.485px + 100vw * 0.0885, 180px);
+   --180-120: clamp(120px, 100.344px + 100vw * 0.0504, 186px);
+   --186-64: clamp(64px, 27.691px + 100vw * 0.0931, 186px);
+   --186-96: clamp(96px, 69.207px + 100vw * 0.0687, 186px);
+   --216-80: clamp(80px, 39.518px + 100vw * 0.1038, 216px);
+   --216-140: clamp(140px, 117.38px + 100vw * 0.058, 216px);
+   --240-96: clamp(96px, 53.139px + 100vw * 0.1099, 240px);
+   --280-120: clamp(120px, 72.381px + 100vw * 0.1221, 280px);
 }
 
 @theme inline {
@@ -44,4 +111,38 @@ h6::selection {
 
 .color-orange {
    color: #f73b20;
+}
+._media-card {
+   -webkit-backdrop-filter: blur(10px);
+   backdrop-filter: blur(10px);
+   background-color: #f73b200d;
+   border-radius: clamp(16px, 13.621px + 100vw * 0.0061, 24px);
+   padding: clamp(4px, 2.206px + 100vw * 0.0046, 10px);
+   position: relative;
+   width: clamp(256px, 219.964px + 100vw * 0.0924, 377px);
+}
+._media-card > div p:first-child {
+   margin-bottom: var(--8);
+}
+
+.subhead-2 {
+   font-size: clamp(19px, 17.518px + 100vw * 0.0038, 24px);
+   letter-spacing: 0.01em;
+   line-height: 1.2;
+}
+.-medium {
+   font-weight: 500;
+}
+.-book {
+   font-weight: 450;
+}
+@media only screen and (max-width: 743px) {
+   .xs-body-small {
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      line-height: 1.4;
+   }
+}
+.opacity-65 {
+   opacity: 0.65;
 }

@@ -66,17 +66,8 @@ export default function SmartVendingLandingPage() {
             {/* Navigation */}
             <nav className="flex items-center justify-between mb-12">
                {/* Logo */}
-               <div className="text-yellow-300 text-3xl font-bold">
-                  <svg
-                     width="48"
-                     height="48"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     stroke="currentColor"
-                     strokeWidth="2"
-                  >
-                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
+               <div className="text-yellow-300 text-3xl font-bold w-20">
+                  <img src="/logos/snackit.png" alt="logo" />
                </div>
 
                {/* Navigation links */}
@@ -137,21 +128,23 @@ export default function SmartVendingLandingPage() {
 
                {/* Right side - images */}
                <div className="w-full md:w-1/2 relative">
-                  <div className="relative w-full aspect-square max-w-md mx-auto">
+                  <div className="relative w-[500] max-w-md mx-auto">
                      {/* Main vending machine image */}
-                     <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-xl">
+                     <div className="relative rounded-3xl overflow-hidden ">
                         <img
-                           src="/api/placeholder/600/600"
+                           src="/hero/img5.png"
                            alt="Smart vending machine with snacks"
-                           className="w-full h-full object-cover"
+                           className="w-[500] h-[600] max-w-full"
+                           style={{ objectFit: 'contain' }}
                         />
                      </div>
+
                      {/* Second vending machine image */}
-                     <div className="absolute -bottom-8 -right-8 w-1/2 h-1/2 rounded-2xl overflow-hidden shadow-xl">
+                     <div className="absolute bottom-10 -right-8 w-1/2 h-1/2 rounded-2xl overflow-hidden shadow-xl">
                         <img
-                           src="/api/placeholder/300/300"
+                           src="/hero/img2.jpg"
                            alt="Blue vending machine"
-                           className="w-full h-full object-cover"
+                           className="w-full h-full object"
                         />
                      </div>
                   </div>
