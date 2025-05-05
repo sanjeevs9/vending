@@ -4,7 +4,7 @@
 // import { MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 
-const routes = [
+const Routes = [
    {
       label: 'Home',
       href: '/',
@@ -82,18 +82,14 @@ export default function SmartVendingLandingPage() {
                {/* Navigation links */}
                <div className="bg-white bg-opacity-20 rounded-full px-6 py-3">
                   <ul className="flex space-x-8">
-                     <li className="text-black hover:text-yellow-200 cursor-pointer">
-                        Home
-                     </li>
-                     <li className="text-black hover:text-yellow-200 cursor-pointer">
-                        why us
-                     </li>
-                     <li className="text-black hover:text-yellow-200 cursor-pointer">
-                        about us
-                     </li>
-                     <li className="text-black hover:text-yellow-200 cursor-pointer">
-                        contact us
-                     </li>
+                     {Routes.map((el, idx) => (
+                        <li
+                           key={idx + 1}
+                           className="text-black hover:text-blue-600 cursor-pointer"
+                        >
+                           {el.label}
+                        </li>
+                     ))}
                   </ul>
                </div>
             </nav>

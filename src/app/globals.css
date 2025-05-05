@@ -24,3 +24,24 @@ body {
    /* color: var(--foreground); */
    font-family: Arial, Helvetica, sans-serif;
 }
+
+p::selection,
+li::selection,
+img::selection {
+   background: #c26558;
+   color: #ffe5e0;
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection {
+   background: #a21906;
+   color: #ffe5e0;
+}
+
+.color-orange {
+   color: #f73b20;
+}
