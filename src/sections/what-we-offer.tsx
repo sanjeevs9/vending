@@ -5,29 +5,28 @@ import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useCallback, useRef, useSyncExternalStore } from 'react';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Content = [
    {
-      image: '/section2/img1.png',
+      image: '/offer/img1.png',
       heading: 'Zero Capital Investment.',
       description: 'Enjoy our vending services with no upfront cost.',
    },
    {
-      image: '/section2/img2.png',
+      image: '/offer/img2.png',
       heading: 'Curated Snack Selection',
       description:
          'A wide variety of hand-picked, round-the-clock snacking options.',
    },
    {
-      image: '/section2/img3.png',
+      image: '/offer/img3.png',
       heading: 'Complete Convenience',
       description: 'We handle everything from logistics to maintenance',
    },
    {
-      image: '/section2/img4.png',
+      image: '/offer/img4.png',
       heading: 'Rapid Refill Support',
       description:
          'Our refill team ensures minimal downtime and quick replenishment',
@@ -35,12 +34,31 @@ const Content = [
 ];
 
 export default function WhatWeOffer() {
+   useGSAP(() => {
+      // Pin the text element
+      ScrollTrigger.create({
+         trigger: '.following-text',
+         pin: true,
+         pinSpacing: true,
+         start: 'top 50%',
+         endTrigger: '.offer-section',
+         end: 'bottom bottom',
+         // markers: true,
+      });
+   }, []);
+
    return (
-      <div className="relative z-10 grid alternating-text-container ">
-         <div className="alternating-text-view absolute left-0 top-15 h-screen w-full">
-            <FollowingText />
+      <div className="offer-section relative z-10 grid alternating-text-container py-30">
+         {/* following text  */}
+         <div className="alternating-text-view absolute left-0 top-20 h-screen w-full">
+            <div className="following-text font-inter">
+               <h1 className="text-4xl md:text-7xl font-bold text-red-500 text-center">
+                  What do we offer you?
+               </h1>
+            </div>
          </div>
 
+         {/* flying card */}
          <div className="alternating-text-view pt-25">
             {Content.map((card, idx) => (
                <div
@@ -95,52 +113,5 @@ export default function WhatWeOffer() {
             ))}
          </div>
       </div>
-   );
-}
-
-function FollowingText() {
-   const textRef = useRef(null);
-   // const isDesktop = useMediaQuery('(min-width: 768px)', true);
-
-   useGSAP(() => {
-      if (!textRef.current) return;
-
-      const sections = gsap.utils.toArray('.alternating-section');
-
-      // Pin the text element
-      ScrollTrigger.create({
-         trigger: textRef.current,
-         pin: true,
-         pinSpacing: true,
-         start: 'top 50%',
-         end: () => `+=${sections.length * 50}%`,
-      });
-   }, []);
-
-   return (
-      <div ref={textRef} className="">
-         <h1 className="text-4xl md:text-7xl font-bold text-red-500 text-center">
-            What do we offer you?
-         </h1>
-      </div>
-   );
-}
-
-export function useMediaQuery(query: string, serverFallback: boolean): boolean {
-   const subscribe = useCallback(
-      (onStoreChange: () => void) => {
-         const mediaQueryList = matchMedia(query);
-         mediaQueryList.addEventListener('change', onStoreChange);
-         return () => {
-            mediaQueryList.removeEventListener('change', onStoreChange);
-         };
-      },
-      [query],
-   );
-
-   return useSyncExternalStore(
-      subscribe,
-      () => matchMedia(query).matches,
-      () => serverFallback,
    );
 }

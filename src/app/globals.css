@@ -146,3 +146,58 @@ h6::selection {
 .opacity-65 {
    opacity: 0.65;
 }
+
+.stack-layout {
+   display: grid;
+   grid-template-areas: 'stack';
+   place-items: center;
+}
+
+.stack-layout > * {
+   grid-area: stack;
+}
+
+.skater-scribble-path {
+   opacity: 0.8;
+   stroke-dasharray: 2300;
+   stroke-dashoffset: -2300;
+   transition: stroke-dashoffset 1s ease-in-out 0.2s;
+   transform-origin: center center;
+}
+
+.skater:hover .skater-scribble-path {
+   stroke-dashoffset: 0;
+}
+
+.slide-in-hidden {
+   opacity: 0;
+   transform: translateX(-100px);
+}
+
+@keyframes slide-in {
+   to {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+.font-bowlby {
+   font-family: var(--font-bowlby-sc);
+}
+
+.font-inter {
+   font-family: var(--font-inter);
+}
+.font-geist-mono {
+   font-family: var(--font-geist-mono);
+}
+.font-geist-sans {
+   font-family: var(--font-geist-sans);
+}
+
+.bg-texture {
+   background-image: url('/bg-texture.webp');
+   background-size: 720px 460px;
+   background-repeat: repeat;
+   background-position: center;
+}

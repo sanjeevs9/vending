@@ -31,29 +31,29 @@ const requirements = [
 
 const images = [
    'need/img1.png',
-   'section2/img2.png',
+   'offer/img2.png',
    'need/img2.png',
-   'section2/img4.png',
+   'offer/img4.png',
 ];
 
 export default function VendingRequirements() {
    const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
    return (
-      <div className="relative min-h-screen bg-white overflow-hidden">
+      <div className="need-section relative min-h-screen bg-white overflow-hidden">
          {/* Page heading */}
          <div className="w-full py-12 px-6">
-            <h1 className="text-6xl font-serif text-red-600 text-right mr-6 md:mr-16">
+            <h1 className="text-6xl font-serif font-bold text-red-500 text-right mr-6 md:mr-16">
                what we need?
             </h1>
          </div>
 
          {/* Requirements list and image container */}
-         <div className="flex flex-col md:flex-row">
+         <div className="flex flex-col md:flex-row pt-[60px]">
             {/* Left side - requirements list */}
             <div className="w-full md:w-1/2">
                {requirements.map((req, index) => (
-                  <div key={index} className="relative">
+                  <div key={index} className="relative font-inter">
                      {/* Red border line between items */}
                      <div className="w-full h-px bg-red-600"></div>
 
@@ -102,7 +102,7 @@ export default function VendingRequirements() {
                               {/* Description that appears on hover */}
                               <div
                                  className={`
-                                    text-red-500 transition-all duration-300 overflow-hidden
+                                    text-red-500 transition-all duration-300 overflow-hidden text-xs pt-1
                                     ${
                                        hoveredIndex === index
                                           ? 'opacity-100 '
@@ -164,9 +164,6 @@ export default function VendingRequirements() {
                                        <div className="w-2 h-6 bg-blue-700"></div>
                                        <div className="w-2 h-8 bg-blue-700"></div>
                                     </div>
-                                    <p className="text-blue-800 font-bold text-center mt-1">
-                                       $40.00
-                                    </p>
                                  </div>
                               </div>
                            )}

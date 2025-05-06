@@ -1,4 +1,5 @@
 import Hero from '@/sections/hero';
+import TheTeam from '@/sections/the-team';
 import VendingRequirements from '@/sections/what-we-need';
 import WhatWeOffer from '@/sections/what-we-offer';
 
@@ -10,6 +11,8 @@ export default function Home() {
          <WhatWeOffer />
 
          <VendingRequirements />
+
+         <TheTeam />
       </div>
    );
 }

@@ -86,7 +86,7 @@ export default function SmartVendingLandingPage() {
             </nav>
 
             {/* Main content */}
-            <div className="flex flex-col md:flex-row  justify-between mt-8">
+            <div className="flex flex-col md:flex-row font-inter justify-between mt-8">
                {/* Left side - text content */}
                <div className="w-full md:w-1/2 mb-10 md:mb-0">
                   <h1 className="text-white text-6xl md:text-7xl font-bold leading-tight mb-4">

@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Bowlby_One_SC, Geist, Geist_Mono, Inter } from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({
@@ -9,6 +9,19 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
    variable: '--font-geist-mono',
    subsets: ['latin'],
+});
+
+const inter = Inter({
+   variable: '--font-inter',
+   subsets: ['latin'],
+   display: 'swap',
+});
+
+const bowlby = Bowlby_One_SC({
+   subsets: ['latin'],
+   display: 'swap',
+   variable: '--font-bowlby-sc',
+   weight: '400',
 });
 
 export const metadata = {
@@ -61,7 +74,7 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
+            className={`${geistSans.variable} ${geistMono.variable} ${bowlby.variable} ${inter.variable} antialiased min-h-screen`}
          >
             <div className="mx-auto h-full max-w-screen-2xl">
                <main>{children}</main>
