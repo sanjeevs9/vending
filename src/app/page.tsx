@@ -1,4 +1,5 @@
 import Hero from '@/sections/hero';
+import VendingRequirements from '@/sections/what-we-need';
 import WhatWeOffer from '@/sections/what-we-offer';
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
 
          <WhatWeOffer />
 
-         <div className="bg-blue-400 h-screen">three</div>
+         <VendingRequirements />
       </div>
    );
 }

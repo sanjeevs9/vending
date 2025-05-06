@@ -100,7 +100,7 @@ export default function WhatWeOffer() {
 
 function FollowingText() {
    const textRef = useRef(null);
-   const isDesktop = useMediaQuery('(min-width: 768px)', true);
+   // const isDesktop = useMediaQuery('(min-width: 768px)', true);
 
    useGSAP(() => {
       if (!textRef.current) return;
