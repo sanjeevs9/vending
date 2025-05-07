@@ -1,3 +1,4 @@
+import About from '@/sections/about';
 import FeaturedByAnimation from '@/sections/featured-by';
 import Hero from '@/sections/hero';
 import TheTeam from '@/sections/the-team';
@@ -16,6 +17,8 @@ export default function Home() {
          <TheTeam />
 
          <FeaturedByAnimation />
+
+         <About />
       </div>
    );
 }

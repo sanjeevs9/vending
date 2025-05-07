@@ -40,7 +40,7 @@ export default function VendingRequirements() {
    const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
    return (
-      <div className="need-section relative min-h-screen bg-white overflow-hidden">
+      <div className="need-section relative min-h-[110vh] bg-white overflow-hidden ">
          {/* Page heading */}
          <div className="w-full py-12 px-6">
             <h1 className="text-6xl font-serif font-bold text-red-500 text-right mr-6 md:mr-16">
