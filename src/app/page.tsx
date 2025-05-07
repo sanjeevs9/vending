@@ -1,3 +1,4 @@
+import FeaturedByAnimation from '@/sections/featured-by';
 import Hero from '@/sections/hero';
 import TheTeam from '@/sections/the-team';
 import VendingRequirements from '@/sections/what-we-need';
@@ -13,6 +14,8 @@ export default function Home() {
          <VendingRequirements />
 
          <TheTeam />
+
+         <FeaturedByAnimation />
       </div>
    );
 }
