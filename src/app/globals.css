@@ -94,7 +94,10 @@ body {
 
 p::selection,
 li::selection,
-img::selection {
+img::selection,
+span::selection,
+input::selection,
+textarea::selection {
    background: #c26558;
    color: #ffe5e0;
 }

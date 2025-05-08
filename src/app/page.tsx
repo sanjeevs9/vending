@@ -1,4 +1,5 @@
 import About from '@/sections/about';
+import ContactUs from '@/sections/contact';
 import FeaturedByAnimation from '@/sections/featured-by';
 import Hero from '@/sections/hero';
 import TheTeam from '@/sections/the-team';
@@ -19,6 +20,8 @@ export default function Home() {
          <FeaturedByAnimation />
 
          <About />
+
+         <ContactUs />
       </div>
    );
 }
