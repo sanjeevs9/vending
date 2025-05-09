@@ -37,7 +37,7 @@ export default function ContactUs() {
    };
 
    return (
-      <div className="relative overflow-hidden min-h-screen font-inter">
+      <section className="contact-section relative overflow-hidden min-h-screen font-inter">
          {/* Wavy background pattern */}
 
          <div className="min-h-screen flex flex-col md:flex-row items-stretch relative z-10">
@@ -270,6 +270,6 @@ export default function ContactUs() {
                </form>
             </div>
          </div>
-      </div>
+      </section>
    );
 }

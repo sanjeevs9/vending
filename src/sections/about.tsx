@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export default function ConstructionStats() {
+export default function AboutUs() {
    const sectionRef = useRef<HTMLDivElement | null>(null);
    const [isVisible, setIsVisible] = useState(false);
 
@@ -45,7 +45,7 @@ export default function ConstructionStats() {
                observer.unobserve(entry.target);
             }
          },
-         { threshold: 0.1 },
+         { threshold: 0.1 }
       );
 
       if (sectionRef.current) {
@@ -61,18 +61,18 @@ export default function ConstructionStats() {
 
    const years = useCountUp(25);
    const members = useCountUp(90);
-   const projects = useCountUp(64);
+   // const projects = useCountUp(64);
    const clients = useCountUp(60);
 
    const stats = [
       { value: years, label: 'Years of Experience', symbol: '+' },
       { value: members, label: 'Team Members', symbol: '+' },
-      { value: projects, label: 'Successful Projects', symbol: '+' },
+      // { value: projects, label: 'Successful Projects', symbol: '+' },
       { value: clients, label: 'Happy Clients', symbol: '+' },
    ];
 
    return (
-      <section className="relative w-full overflow-hidden flex justify-center">
+      <section className="about-section relative w-full overflow-hidden flex justify-center">
          {/* effect  */}
          <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-400 z-0">
             <div className="absolute inset-0 opacity-20">
@@ -131,7 +131,7 @@ export default function ConstructionStats() {
                   </p>
                </div>
 
-               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-10">
+               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
                   {stats.map((stat, index) => (
                      <div key={index} className="text-center">
                         <div className="flex justify-center">
@@ -145,14 +145,6 @@ export default function ConstructionStats() {
                      </div>
                   ))}
                </div>
-
-               {/* <div className="mt-10 rounded-xl overflow-hidden">
-                  <img
-                     src="/test.png"
-                     alt="Construction site with excavator"
-                     className="w-full h-auto object-cover"
-                  />
-               </div> */}
             </div>
          </div>
       </section>

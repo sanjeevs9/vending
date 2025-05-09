@@ -48,7 +48,7 @@ export default function WhatWeOffer() {
    }, []);
 
    return (
-      <div className="offer-section relative z-10 grid alternating-text-container py-30">
+      <section className="offer-section relative z-10 grid alternating-text-container py-30">
          {/* following text  */}
          <div className="alternating-text-view absolute left-0 top-20 h-screen w-full">
             <div className="following-text font-inter">
@@ -69,7 +69,7 @@ export default function WhatWeOffer() {
                      className={clsx(
                         idx % 2 === 0 ? 'col-start-1' : 'md:col-start-2',
 
-                        ' p-4',
+                        ' p-4'
                      )}
                   >
                      <div
@@ -112,6 +112,6 @@ export default function WhatWeOffer() {
                </div>
             ))}
          </div>
-      </div>
+      </section>
    );
 }

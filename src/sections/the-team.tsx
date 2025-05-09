@@ -41,7 +41,7 @@ export default function TheTeam() {
    }, []);
 
    return (
-      <div className="team-section relative min-h-[110vh] overflow-hidden flex flex-col items-center justify-center">
+      <section className="team-section relative min-h-[110vh] overflow-hidden flex flex-col items-center justify-center">
          {/* background img  */}
          <img
             src="/team/background.jpg"
@@ -68,7 +68,7 @@ export default function TheTeam() {
                className="team-card team-card-2 w-full max-w-xl -mt-10"
             />
          </div>
-      </div>
+      </section>
    );
 }
 

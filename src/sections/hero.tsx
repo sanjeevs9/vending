@@ -27,7 +27,7 @@ export default function SmartVendingLandingPage() {
    const [hoveredButton, setHoveredButton] = useState(null);
 
    return (
-      <div className="relative w-full h-screen overflow-hidden">
+      <section className="hero-section relative w-full h-screen overflow-hidden">
          {/* Background gradient with wave pattern */}
          <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-400 z-0">
             <div className="absolute inset-0 opacity-20">
@@ -197,6 +197,6 @@ export default function SmartVendingLandingPage() {
                </div>
             </div>
          </div>
-      </div>
+      </section>
    );
 }
