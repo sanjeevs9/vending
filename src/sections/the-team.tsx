@@ -10,14 +10,14 @@ const member1 = {
    nickName: 'The Snack Tech Sorcerer',
    about: `Ashish is the one who made it all happen. With his expertise in tech and his love for snacks`,
    backgroundImage: '/team/2b.jpg',
-   foregroundImage: '/team/2f.png',
+   foregroundImage: '/team/2f.png'
 };
 const member2 = {
    name: 'Monika Nimaodia',
    nickName: 'Snack Whisperer & Creative Genius',
    about: 'Monika always believed snacks were more than just fuel – they were an experience. With a passion for perfecting snack moments',
    backgroundImage: '/team/1b.jpg',
-   foregroundImage: '/team/1f.png',
+   foregroundImage: '/team/1f.png'
 };
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -33,10 +33,10 @@ export default function TheTeam() {
             trigger: '.team-card-1',
             start: 'top bottom',
             end: '+=500',
-            scrub: true,
+            scrub: true
             // markers: true,
          },
-         ease: 'power2.in',
+         ease: 'power2.in'
       });
    }, []);
 
@@ -74,7 +74,7 @@ export default function TheTeam() {
 
 function TeamMemberCard({
    member,
-   className,
+   className
 }: Readonly<{
    className?: string;
    member: {
@@ -97,7 +97,7 @@ function TeamMemberCard({
             background: 'rgba(60, 60, 60, 0.85)',
             backdropFilter: 'blur(6px)',
             boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            border: '1px solid rgba(255, 255, 255, 0.08)'
          }}
       >
          <div className="flex items-center gap-3">

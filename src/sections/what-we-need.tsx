@@ -8,32 +8,32 @@ const requirements = [
       title: 'Just a small space',
       description:
          'Our compact machines require minimal floor space and can fit in tight corners.',
-      starColor: '#FF0000',
+      starColor: '#FF0000'
    },
    {
       title: 'Low service fees',
       description: 'Transparent pricing with low monthly service fees.',
-      starColor: '#FF0000',
+      starColor: '#FF0000'
    },
    {
       title: 'Regular refills',
       description:
          'We monitor inventory levels and provide scheduled refills to keep your machine stocked.',
-      starColor: '#FF0000',
+      starColor: '#FF0000'
    },
    {
       title: 'Safe placement needed',
       description:
          'Machines need to be placed in secure, accessible locations with electrical outlets nearby.',
-      starColor: '#FF0000',
-   },
+      starColor: '#FF0000'
+   }
 ];
 
 const images = [
    'need/img1.png',
    'offer/img2.png',
    'need/img2.png',
-   'offer/img4.png',
+   'offer/img4.png'
 ];
 
 export default function VendingRequirements() {
@@ -110,7 +110,7 @@ export default function VendingRequirements() {
                                     }
                                  `}
                                  style={{
-                                    minHeight: '1.5rem', // Reserve space for one line (adjust as needed)
+                                    minHeight: '1.5rem' // Reserve space for one line (adjust as needed)
                                  }}
                               >
                                  <p>{req.description}</p>

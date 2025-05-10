@@ -7,20 +7,20 @@ import { useState } from 'react';
 const Routes = [
    {
       label: 'Home',
-      href: '/',
+      href: '/'
    },
    {
       label: 'Why us',
-      href: '/tasks',
+      href: '/tasks'
    },
    {
       label: 'about us',
-      href: '/settings',
+      href: '/settings'
    },
    {
       label: 'contact us',
-      href: '/members',
-   },
+      href: '/members'
+   }
 ];
 
 export default function SmartVendingLandingPage() {

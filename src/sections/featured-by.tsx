@@ -12,24 +12,24 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const Brands = [
    {
       name: 'Brand 1',
-      image: '/features/img1.png',
+      image: '/features/img1.png'
    },
    {
       name: 'Brand 2',
-      image: '/features/img2.png',
+      image: '/features/img2.png'
    },
    {
       name: 'Brand 3',
-      image: '/features/img3.png',
+      image: '/features/img3.png'
    },
    {
       name: 'Brand 4',
-      image: '/features/img4.png',
+      image: '/features/img4.png'
    },
    {
       name: 'Brand 5',
-      image: '/features/img5.png',
-   },
+      image: '/features/img5.png'
+   }
 ];
 
 export default function FeaturedByAnimation() {
@@ -67,15 +67,15 @@ export default function FeaturedByAnimation() {
             end: 'bottom bottom',
             scrub: 1,
             pin: true,
-            pinSpacing: false, // Removes extra space
+            pinSpacing: false // Removes extra space
             // markers: true,
-         },
+         }
       });
 
       tl.to(headingRef.current, {
          scale: 0.4,
          ease: 'none',
-         duration: 2.4,
+         duration: 2.4
       });
       tl.to(
          imageRef1.current,

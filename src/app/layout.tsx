@@ -3,25 +3,25 @@ import './globals.css';
 
 const geistSans = Geist({
    variable: '--font-geist-sans',
-   subsets: ['latin'],
+   subsets: ['latin']
 });
 
 const geistMono = Geist_Mono({
    variable: '--font-geist-mono',
-   subsets: ['latin'],
+   subsets: ['latin']
 });
 
 const inter = Inter({
    variable: '--font-inter',
    subsets: ['latin'],
-   display: 'swap',
+   display: 'swap'
 });
 
 const bowlby = Bowlby_One_SC({
    subsets: ['latin'],
    display: 'swap',
    variable: '--font-bowlby-sc',
-   weight: '400',
+   weight: '400'
 });
 
 export const metadata = {
@@ -41,8 +41,8 @@ export const metadata = {
             url: '/snackit.png',
             width: 1200,
             height: 630,
-            alt: 'Snackit logo with slogan',
-         },
+            alt: 'Snackit logo with slogan'
+         }
       ],
       locale: 'en_US',
       type: 'website',
@@ -54,20 +54,20 @@ export const metadata = {
          'automated retail',
          'gym vending',
          'campus snacks',
-         'Snackit',
-      ],
+         'Snackit'
+      ]
    },
    twitter: {
       card: 'summary_large_image',
       title: 'Snackit – Your Smart Snack Manager',
       description:
          'Empowering businesses with smart, reliable vending machines for effortless, 24/7 product access.',
-      images: ['/snackit.png'],
-   },
+      images: ['/snackit.png']
+   }
 };
 
 export default function RootLayout({
-   children,
+   children
 }: Readonly<{
    children: React.ReactNode;
 }>) {
@@ -76,9 +76,7 @@ export default function RootLayout({
          <body
             className={`${geistSans.variable} ${geistMono.variable} ${bowlby.variable} ${inter.variable} antialiased min-h-screen`}
          >
-            <div className="mx-auto h-full max-w-screen-2xl">
-               <main>{children}</main>
-            </div>
+            <main>{children}</main>
          </body>
       </html>
    );

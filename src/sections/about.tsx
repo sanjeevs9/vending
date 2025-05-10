@@ -68,7 +68,7 @@ export default function AboutUs() {
       { value: years, label: 'Years of Experience', symbol: '+' },
       { value: members, label: 'Team Members', symbol: '+' },
       // { value: projects, label: 'Successful Projects', symbol: '+' },
-      { value: clients, label: 'Happy Clients', symbol: '+' },
+      { value: clients, label: 'Happy Clients', symbol: '+' }
    ];
 
    return (

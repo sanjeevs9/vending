@@ -12,25 +12,25 @@ const Content = [
    {
       image: '/offer/img1.png',
       heading: 'Zero Capital Investment.',
-      description: 'Enjoy our vending services with no upfront cost.',
+      description: 'Enjoy our vending services with no upfront cost.'
    },
    {
       image: '/offer/img2.png',
       heading: 'Curated Snack Selection',
       description:
-         'A wide variety of hand-picked, round-the-clock snacking options.',
+         'A wide variety of hand-picked, round-the-clock snacking options.'
    },
    {
       image: '/offer/img3.png',
       heading: 'Complete Convenience',
-      description: 'We handle everything from logistics to maintenance',
+      description: 'We handle everything from logistics to maintenance'
    },
    {
       image: '/offer/img4.png',
       heading: 'Rapid Refill Support',
       description:
-         'Our refill team ensures minimal downtime and quick replenishment',
-   },
+         'Our refill team ensures minimal downtime and quick replenishment'
+   }
 ];
 
 export default function WhatWeOffer() {
@@ -42,7 +42,7 @@ export default function WhatWeOffer() {
          pinSpacing: true,
          start: 'top 50%',
          endTrigger: '.offer-section',
-         end: 'bottom bottom',
+         end: 'bottom bottom'
          // markers: true,
       });
    }, []);
@@ -78,7 +78,7 @@ export default function WhatWeOffer() {
                            translate: 'none',
                            rotate: 'none',
                            scale: 'none',
-                           transform: 'translate3d(0px, 10.9311px, 0px)',
+                           transform: 'translate3d(0px, 10.9311px, 0px)'
                         }}
                      >
                         <span

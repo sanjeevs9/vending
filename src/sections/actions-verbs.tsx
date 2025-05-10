@@ -22,17 +22,17 @@ export default function ActionsVerbs() {
             scrub: 1,
             pin: true,
             // markers: true,
-            pinSpacing: false,
-         },
+            pinSpacing: false
+         }
       });
 
       tl.to(actionRef2.current, {
          y: -480,
-         ease: Power4.easeOut,
+         ease: Power4.easeOut
       });
       tl.to(actionRef3.current, {
          y: -480,
-         ease: Power4.easeOut,
+         ease: Power4.easeOut
       });
    }, []);
 
