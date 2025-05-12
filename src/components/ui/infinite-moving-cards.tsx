@@ -88,14 +88,14 @@ export const InfiniteMovingCards = ({
       <div
          ref={containerRef}
          className={cn(
-            'scroller relative z-20 max-w-7xl overflow-hidden',
+            'scroller relative z-20 w-[90vw] md:w-[95vw] overflow-hidden',
             className
          )}
       >
          <ul
             ref={scrollerRef}
             className={cn(
-               'flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4',
+               'flex w-max min-w-full shrink-0 flex-nowrap gap-[2vw] py-[2vh]',
                start && 'animate-scroll',
                pauseOnHover && 'hover:[animation-play-state:paused]'
             )}
@@ -103,12 +103,12 @@ export const InfiniteMovingCards = ({
             {items.map((item, idx) => (
                <li
                   key={idx + 1}
-                  className="relative w-[300px] max-w-full shrink-0 rounded-2xl overflow-hidden"
+                  className="relative w-[70vw] md:w-[40vw] lg:w-[25vw] max-w-full shrink-0 rounded-2xl overflow-hidden"
                >
-                  <div className="h-[400px] w-full relative">
+                  <div className="aspect-[3/4] w-full relative">
                      <img
                         src={item.image}
-                        alt=""
+                        alt={item.title}
                         className="absolute inset-0 w-full h-full object-cover"
                      />
 
@@ -116,11 +116,13 @@ export const InfiniteMovingCards = ({
                      <div className="absolute inset-0 bg-black/40" />
 
                      {/* Content */}
-                     <div className="absolute inset-0 flex flex-col items-center justify-center font-inter">
-                        <span className="text-white text-2xl font-bold">
+                     <div className="absolute inset-0 flex flex-col items-center justify-center p-[2vh] text-center">
+                        <span className="text-white text-[4vw] md:text-[2.5vw] lg:text-[1.5vw] font-bold mb-[1vh]">
                            {item.title}
                         </span>
-                        <span className="text-white text-md ">{item.tag}</span>
+                        <span className="text-white text-[3vw] md:text-[2vw] lg:text-[1.2vw]">
+                           {item.tag}
+                        </span>
                      </div>
                   </div>
                </li>

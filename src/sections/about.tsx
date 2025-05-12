@@ -59,20 +59,18 @@ export default function AboutUs() {
       };
    }, []);
 
-   const years = useCountUp(25);
+   const years = useCountUp(15);
    const members = useCountUp(90);
-   // const projects = useCountUp(64);
    const clients = useCountUp(60);
 
    const stats = [
       { value: years, label: 'Years of Experience', symbol: '+' },
       { value: members, label: 'Team Members', symbol: '+' },
-      // { value: projects, label: 'Successful Projects', symbol: '+' },
       { value: clients, label: 'Happy Clients', symbol: '+' }
    ];
 
    return (
-      <section className="about-section relative w-full overflow-hidden flex justify-center">
+      <section className="about-section relative w-full min-h-[50vh] overflow-hidden flex justify-center">
          {/* effect  */}
          <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-400 z-0">
             <div className="absolute inset-0 opacity-20">
@@ -107,23 +105,23 @@ export default function AboutUs() {
          </div>
 
          {/* main content  */}
-         <div className="relative pt-10">
+         <div className="relative w-full py-[5vh] px-[3vw]">
             <div
-               className=" max-w-6xl mx-auto backdrop-blur-md"
+               className="max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] mx-auto backdrop-blur-md"
                ref={sectionRef}
             >
-               <div className="text-center mb-4">
-                  <span className="text-white font-medium font-geist-mono">
+               <div className="text-center mb-[2vh]">
+                  <span className="text-white text-[2.5vw] md:text-[1.5vw] lg:text-[1vw] font-medium font-geist-mono">
                      About Us
                   </span>
                </div>
 
-               <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-6">
+               <h2 className="text-[6vw] md:text-[4vw] lg:text-[3vw] font-bold text-center text-white mb-[3vh]">
                   We&apos;re snack lovers, just like you!
                </h2>
 
-               <div className="flex mx-5 md:mx-0">
-                  <p className=" text-slate-200 max-w-3xl mx-auto mb-16 text-justify font-inter">
+               <div className="flex mx-[3vw] md:mx-0">
+                  <p className="text-slate-200 max-w-[90vw] md:max-w-[70vw] lg:max-w-[60vw] mx-auto mb-[5vh] text-justify text-[3vw] md:text-[1.8vw] lg:text-[1.2vw] leading-relaxed">
                      At Snackit, we believe snacks are more than just food —
                      they&apos;re moments of joy and quick pick-me-ups wherever
                      you are. With smart tech and your favorites always stocked,
@@ -131,17 +129,19 @@ export default function AboutUs() {
                   </p>
                </div>
 
-               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10">
+               <div className="grid grid-cols-1 md:grid-cols-3 gap-[4vw] pb-[5vh]">
                   {stats.map((stat, index) => (
                      <div key={index} className="text-center">
                         <div className="flex justify-center">
-                           <span className="text-4xl md:text-5xl font-bold text-white">
+                           <span className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-bold text-white">
                               {stat.value}
                               {stat.symbol}
                            </span>
                         </div>
 
-                        <p className="text-slate-100 mt-2">{stat.label}</p>
+                        <p className="text-slate-100 mt-[1vh] text-[3vw] md:text-[2vw] lg:text-[1.5vw]">
+                           {stat.label}
+                        </p>
                      </div>
                   ))}
                </div>

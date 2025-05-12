@@ -40,26 +40,24 @@ export default function VendingRequirements() {
    const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
    return (
-      <section className="need-section relative min-h-[110vh] bg-white overflow-hidden ">
+      <section className="need-section relative md:min-h-[120vh] min-h-[90vh] overflow-hidden">
          {/* Page heading */}
-         <div className="w-full py-12 px-6">
-            <h1 className="text-6xl font-serif font-bold text-red-500 text-right mr-6 md:mr-16">
+         <div className="w-full md:py-[5vh] px-[3vw]">
+            <h1 className="text-[7vw] md:text-[5vw] lg:text-[4vw] font-bold text-red-500 text-right mr-[3vw] md:mr-[5vw]">
                what we need?
             </h1>
          </div>
 
          {/* Requirements list and image container */}
-         <div className="flex flex-col md:flex-row pt-[60px]">
+         <div className="flex flex-col md:flex-row pt-[5vh]">
             {/* Left side - requirements list */}
             <div className="w-full md:w-1/2">
                {requirements.map((req, index) => (
-                  <div key={index} className="relative font-inter">
-                     {/* Red border line between items */}
-                     <div className="w-full h-px bg-red-600"></div>
+                  <div key={index + 1} className="relative">
+                     <div className="w-full h-[1px] bg-red-600"></div>
 
-                     {/* Requirement item */}
                      <div
-                        className="py-6 px-6 hover:bg-red-50 transition-colors duration-300 cursor-pointer"
+                        className="py-[2vh] px-[3vw] hover:bg-red-50 transition-colors duration-300 cursor-pointer"
                         role="button"
                         tabIndex={0}
                         onMouseEnter={() => setHoveredIndex(index)}
@@ -77,40 +75,49 @@ export default function VendingRequirements() {
                         onTouchStart={() => setHoveredIndex(index)}
                         onTouchEnd={() => setHoveredIndex(null)}
                      >
-                        <div className="flex items-center gap-4">
-                           {/* Title and description */}
+                        <div className="flex items-center gap-[2vw]">
                            <div>
-                              <div className="flex gap-4 items-center justify-start">
+                              <div className="flex gap-[1vw] items-center justify-start">
                                  <svg
-                                    width="24"
-                                    height="24"
+                                    className="w-[2vw] h-[2vw] min-w-[20px] min-h-[20px] text-red-600 transition-all duration-300"
                                     viewBox="0 0 24 24"
                                     fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                  >
-                                    <path
-                                       d="M12 0L14 8H22L16 13L18 21L12 16L6 21L8 13L2 8H10L12 0Z"
-                                       fill={req.starColor}
-                                    />
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    {/* This line will only show when not hovered */}
+                                    <line
+                                       x1="12"
+                                       y1="5"
+                                       x2="12"
+                                       y2="19"
+                                       className={`${
+                                          hoveredIndex === index
+                                             ? 'opacity-0'
+                                             : 'opacity-100'
+                                       } transition-opacity duration-300`}
+                                    ></line>
                                  </svg>
-
-                                 <h3 className="text-3xl font-medium text-red-600">
+                                 <h3 className="text-[4vw] md:text-[2.5vw] lg:text-[2vw] font-medium text-red-600">
                                     {req.title}
                                  </h3>
                               </div>
 
-                              {/* Description that appears on hover */}
                               <div
                                  className={`
-                                    text-red-500 transition-all duration-300 overflow-hidden text-xs pt-1
+                                    text-red-500 transition-all duration-300 overflow-hidden 
+                                    text-[3vw] md:text-[1.5vw] lg:text-[1.2vw] pt-[1vh]
                                     ${
                                        hoveredIndex === index
-                                          ? 'opacity-100 '
+                                          ? 'opacity-100'
                                           : 'opacity-0'
                                     }
                                  `}
                                  style={{
-                                    minHeight: '1.5rem' // Reserve space for one line (adjust as needed)
+                                    minHeight: '3vh'
                                  }}
                               >
                                  <p>{req.description}</p>
@@ -120,25 +127,23 @@ export default function VendingRequirements() {
                      </div>
                   </div>
                ))}
-
-               {/* Final red border line */}
-               <div className="w-full h-px bg-red-600"></div>
+               <div className="w-full h-[1px] bg-red-600"></div>
             </div>
 
-            {/* Right side - image (hidden on small devices) */}
+            {/* Right side - image */}
             <div className="w-full md:w-1/2 relative hidden md:block">
-               <div className="h-full flex items-center justify-center p-8">
-                  {/* Images that change on hover */}
+               <div className="h-full flex items-center justify-center p-[3vh]">
                   {images.map((src, index) => (
                      <div
                         key={index + 1}
-                        className={`absolute inset-0 transition-opacity duration-500 flex items-center justify-center ${
-                           hoveredIndex === index
-                              ? 'opacity-100 z-10'
-                              : 'opacity-0 z-0'
-                        }`}
+                        className={`absolute inset-0 transition-opacity duration-500 flex items-center justify-center 
+                           ${
+                              hoveredIndex === index
+                                 ? 'opacity-100 z-10'
+                                 : 'opacity-0 z-0'
+                           }`}
                      >
-                        <div className="relative w-full max-w-lg aspect-square rounded-3xl overflow-hidden transform rotate-6 shadow-xl">
+                        <div className="relative w-[80%] max-w-[50vw] aspect-square rounded-3xl overflow-hidden transform rotate-6 shadow-xl">
                            <img
                               src={src}
                               alt={
@@ -147,10 +152,9 @@ export default function VendingRequirements() {
                               className="w-full h-full object-cover"
                            />
 
-                           {/* Show "LOW SERVICE FEES" badge on the second image */}
                            {index === 1 && (
-                              <div className="absolute top-8 left-8 bg-white p-3 rounded-lg shadow-md">
-                                 <p className="text-blue-800 font-bold text-center">
+                              <div className="absolute top-[3vh] left-[3vh] bg-white p-[2vh] rounded-lg shadow-md">
+                                 <p className="text-blue-800 font-bold text-[2vw] md:text-[1.5vw] lg:text-[1vw] text-center">
                                     LOW
                                     <br />
                                     SERVICE
@@ -170,8 +174,6 @@ export default function VendingRequirements() {
                         </div>
                      </div>
                   ))}
-
-                  {/* Default image (when nothing is hovered) */}
                   <div
                      className={`absolute inset-0 transition-opacity duration-500 flex items-center justify-center ${
                         hoveredIndex === null
@@ -179,7 +181,7 @@ export default function VendingRequirements() {
                            : 'opacity-0 z-0'
                      }`}
                   >
-                     <div className="relative w-full max-w-lg aspect-square rounded-3xl overflow-hidden transform rotate-6 shadow-xl">
+                     <div className="relative w-[80%] max-w-[50vw] aspect-square rounded-3xl overflow-hidden transform rotate-6 shadow-xl">
                         <img
                            src="/need/img3.png"
                            alt="Vending machine with person"

@@ -67,10 +67,10 @@ export default function WhatWeOffer() {
       };
 
       // Initial positions (off screen)
-      gsap.set(imageRef1.current, { x: '-350%', y: '-540%' });
-      gsap.set(imageRef2.current, { x: '300%', y: '-540%' });
-      gsap.set(imageRef3.current, { x: '-300%', y: '540%' });
-      gsap.set(imageRef4.current, { x: '300%', y: '540%' });
+      gsap.set(imageRef1.current, { x: '-450%', y: '-500%', rotation: 2 });
+      gsap.set(imageRef2.current, { x: '400%', y: '-500%', rotation: -2 });
+      gsap.set(imageRef3.current, { x: '-400%', y: '500%', rotation: -2 });
+      gsap.set(imageRef4.current, { x: '400%', y: '500%', rotation: 2 });
 
       const tl = gsap.timeline({
          scrollTrigger: {
@@ -97,7 +97,7 @@ export default function WhatWeOffer() {
          { ref: imageRef4.current, pos: positions.bottomRight }
       ];
 
-      cards.forEach((card, index) => {
+      cards.forEach((card) => {
          tl.to(
             card.ref,
             {
@@ -114,20 +114,20 @@ export default function WhatWeOffer() {
    }, []);
 
    return (
-      <section className="featured-section relative overflow-hidden">
+      <section className="featured-section relative overflow-x-hidden">
          <div ref={sectionRef}>
             {/* center text */}
             <div className="h-screen flex items-center justify-center px-4">
                <h1
                   ref={headingRef}
-                  className="recognition-heading text-center text-[8vw] sm:text-[10vw] md:text-[12vw] lg:text-[15vw] font-inter font-semibold text-red-600 tracking-tight leading-tight max-w-[90vw]"
+                  className="recognition-heading text-center text-[10vw] md:text-[12vw] lg:text-[15vw] font-semibold text-red-600 tracking-tight leading-tight max-w-[90vw]"
                >
                   What we offer you?
                </h1>
             </div>
 
             {/* brands logos */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none overflow-x-hidden">
                <ul className="w-full h-full">
                   {Content.map((item, index) => (
                      <li
@@ -135,12 +135,12 @@ export default function WhatWeOffer() {
                         ref={
                            [imageRef1, imageRef2, imageRef3, imageRef4][index]
                         }
-                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[20vw] lg:w-[15vw] max-w-sm"
+                        className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[20vw] lg:w-[15vw] max-w-sm will-change-transform"
                      >
                         <div
                            className={`backdrop-blur-lg rounded-xl shadow-lg p-1 bg-[${item.bg}]`}
                         >
-                           <div className="relative w-full h-[18vh] md:h-[15vh] lg:h-[15vh] pt-1">
+                           <div className="relative w-full h-[18vh] md:h-[18vh] lg:h-[17vh] pt-1">
                               <Image
                                  src={item.image}
                                  alt={item.title}
@@ -152,7 +152,7 @@ export default function WhatWeOffer() {
                               />
                            </div>
                            <div className="flex justify-center py-2">
-                              <p className="text-sm md:text-md lg:text-2xl font-medium text-red-800 text-center">
+                              <p className="text-sm md:text-md lg:text-[2vh] font-medium text-red-800 text-center">
                                  {item.title}
                               </p>
                            </div>

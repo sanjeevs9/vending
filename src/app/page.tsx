@@ -11,7 +11,7 @@ import WhatWeOffer from '@/sections/what-we-offer';
 
 export default function Home() {
    return (
-      <>
+      <div className="overflow-hidden">
          <Hero />
 
          <FeaturedBy />
@@ -31,6 +31,6 @@ export default function Home() {
          <ContactUs />
 
          <Footer />
-      </>
+      </div>
    );
 }

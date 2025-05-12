@@ -55,11 +55,11 @@ export default function FeaturedBy() {
    }, []);
 
    return (
-      <section className="offer-section relative z-10 grid alternating-text-container py-30">
+      <section className="offer-section relative z-10 grid py-[20vh] overflow-x-hidden">
          {/* following text  */}
-         <div className="alternating-text-view absolute left-0 top-20 h-screen w-full">
-            <div className="following-text font-inter">
-               <h1 className="text-5xl md:text-7xl font-bold text-red-500 text-center">
+         <div className="alternating-text-view absolute left-0 top-[15vh] h-screen w-full">
+            <div className="following-text">
+               <h1 className="text-[13vw] md:text-[9vw] lg:text-[7vw] xl:text-[7vw] font-bold text-red-500 text-center leading-tight">
                   Featured by
                </h1>
             </div>

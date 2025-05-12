@@ -32,9 +32,11 @@ const servings = [
 
 export default function Servings() {
    return (
-      <section className="h-[40rem] rounded-sm flex flex-col antialiased bg-white items-center justify-center relative overflow-hidden">
-         <div className="flex flex-col justify-center font-sans text-2xl text-red-500">
-            Delightful servings, all day,everyday!!
+      <section className="min-h-[90vh] rounded-sm flex flex-col antialiased bg-white items-center justify-center relative overflow-hidden">
+         <div className="flex flex-col justify-center mb-[3vh]">
+            <h2 className="text-[4vw] md:text-[3vw] lg:text-[2vw] text-red-500 text-center font-medium">
+               Delightful servings, all day, everyday!!
+            </h2>
          </div>
 
          <InfiniteMovingCards items={servings} direction="right" speed="slow" />
