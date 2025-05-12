@@ -74,7 +74,7 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${geistSans.variable} ${geistMono.variable} ${bowlby.variable} ${inter.variable} antialiased min-h-screen`}
+            className={`${geistSans.variable} ${geistMono.variable} ${bowlby.variable} ${inter.variable} antialiased`}
          >
             <main>{children}</main>
          </body>

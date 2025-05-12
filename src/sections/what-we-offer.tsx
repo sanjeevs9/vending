@@ -2,115 +2,165 @@
 'use client';
 
 import { useGSAP } from '@gsap/react';
-import clsx from 'clsx';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
+import { useRef } from 'react';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Content = [
    {
-      image: '/offer/img1.png',
-      heading: 'Zero Capital Investment.',
-      description: 'Enjoy our vending services with no upfront cost.'
+      image: '/test2/img1.png',
+      title: 'Zero Capital Investment.',
+      description: 'Enjoy our vending services with no upfront cost.',
+      bg: '#30c858'
    },
    {
-      image: '/offer/img2.png',
-      heading: 'Curated Snack Selection',
+      image: '/test2/img3.png',
+      title: 'Complete Convenience',
+      description: 'We handle everything from logistics to maintenance',
+      bg: '#fbdcfb'
+   },
+   {
+      image: '/test2/img2.png',
+      title: 'Rapid Refill Support',
       description:
-         'A wide variety of hand-picked, round-the-clock snacking options.'
+         'Our refill team ensures minimal downtime and quick replenishment',
+      bg: '#c9a68b'
    },
    {
-      image: '/offer/img3.png',
-      heading: 'Complete Convenience',
-      description: 'We handle everything from logistics to maintenance'
-   },
-   {
-      image: '/offer/img4.png',
-      heading: 'Rapid Refill Support',
+      image: '/test2/img4.png',
+      title: 'Curated Snack Selection',
       description:
-         'Our refill team ensures minimal downtime and quick replenishment'
+         'A wide variety of hand-picked, round-the-clock snacking options.',
+      bg: '#509dd4'
    }
 ];
 
 export default function WhatWeOffer() {
+   const headingRef = useRef<HTMLHeadingElement>(null);
+   const sectionRef = useRef<HTMLDivElement>(null);
+
+   const imageRef1 = useRef<HTMLLIElement>(null);
+   const imageRef2 = useRef<HTMLLIElement>(null);
+   const imageRef3 = useRef<HTMLLIElement>(null);
+   const imageRef4 = useRef<HTMLLIElement>(null);
+
    useGSAP(() => {
-      // Pin the text element
-      ScrollTrigger.create({
-         trigger: '.following-text',
-         pin: true,
-         pinSpacing: true,
-         start: 'top 50%',
-         endTrigger: '.offer-section',
-         end: 'bottom bottom'
-         // markers: true,
+      if (
+         !headingRef.current ||
+         !sectionRef.current ||
+         !imageRef1.current ||
+         !imageRef2.current ||
+         !imageRef3.current ||
+         !imageRef4.current
+      )
+         return;
+
+      // Calculate viewport-relative positions
+      const positions = {
+         topLeft: { x: '-50%', y: '-50%' },
+         topRight: { x: '50%', y: '-48%' },
+         bottomLeft: { x: '-50%', y: '50%' },
+         bottomRight: { x: '50%', y: '50%' }
+      };
+
+      // Initial positions (off screen)
+      gsap.set(imageRef1.current, { x: '-350%', y: '-540%' });
+      gsap.set(imageRef2.current, { x: '300%', y: '-540%' });
+      gsap.set(imageRef3.current, { x: '-300%', y: '540%' });
+      gsap.set(imageRef4.current, { x: '300%', y: '540%' });
+
+      const tl = gsap.timeline({
+         scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top top',
+            end: '+=300%',
+            scrub: 1,
+            pin: true
+         }
+      });
+
+      // Scale down heading
+      tl.to(headingRef.current, {
+         scale: 0.4,
+         ease: 'power2.inOut',
+         duration: 1
+      });
+
+      // Animate cards in sequence
+      const cards = [
+         { ref: imageRef1.current, pos: positions.topLeft },
+         { ref: imageRef2.current, pos: positions.topRight },
+         { ref: imageRef3.current, pos: positions.bottomLeft },
+         { ref: imageRef4.current, pos: positions.bottomRight }
+      ];
+
+      cards.forEach((card, index) => {
+         tl.to(
+            card.ref,
+            {
+               x: card.pos.x,
+               y: card.pos.y,
+               opacity: 1,
+               scale: 1,
+               duration: 1,
+               ease: 'power2.out'
+            },
+            '<'
+         );
       });
    }, []);
 
    return (
-      <section className="offer-section relative z-10 grid alternating-text-container py-30">
-         {/* following text  */}
-         <div className="alternating-text-view absolute left-0 top-20 h-screen w-full">
-            <div className="following-text font-inter">
-               <h1 className="text-4xl md:text-7xl font-bold text-red-500 text-center">
-                  What do we offer you?
+      <section className="featured-section relative overflow-hidden">
+         <div ref={sectionRef}>
+            {/* center text */}
+            <div className="h-screen flex items-center justify-center px-4">
+               <h1
+                  ref={headingRef}
+                  className="recognition-heading text-center text-[8vw] sm:text-[10vw] md:text-[12vw] lg:text-[15vw] font-inter font-semibold text-red-600 tracking-tight leading-tight max-w-[90vw]"
+               >
+                  What we offer you?
                </h1>
             </div>
-         </div>
 
-         {/* flying card */}
-         <div className="alternating-text-view pt-25">
-            {Content.map((card, idx) => (
-               <div
-                  key={idx + 1}
-                  className="alternating-section grid place-items-center gap-x-12 md:grid-cols-2 "
-               >
-                  <div
-                     className={clsx(
-                        idx % 2 === 0 ? 'col-start-1' : 'md:col-start-2',
-
-                        ' p-4'
-                     )}
-                  >
-                     <div
-                        className="_media-card color-orange backdrop-blur-lg"
-                        style={{
-                           translate: 'none',
-                           rotate: 'none',
-                           scale: 'none',
-                           transform: 'translate3d(0px, 10.9311px, 0px)'
-                        }}
+            {/* brands logos */}
+            <div className="absolute inset-0 pointer-events-none">
+               <ul className="w-full h-full">
+                  {Content.map((item, index) => (
+                     <li
+                        key={index + 1}
+                        ref={
+                           [imageRef1, imageRef2, imageRef3, imageRef4][index]
+                        }
+                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[20vw] lg:w-[15vw] max-w-sm"
                      >
-                        <span
-                           data-aspect-ratio=""
-                           // style={{-- -:'1.000' ,}}
+                        <div
+                           className={`backdrop-blur-lg rounded-xl shadow-lg p-1 bg-[${item.bg}]`}
                         >
-                           <div
-                              className="_skeleton media fit-cover pb-3"
-                              data-tone="neutral"
-                              data-media="image"
-                              data-loaded="true"
-                           >
-                              <img
-                                 src={card.image}
-                                 alt="card"
-                                 sizes="(max-width: 1023px) 70vw, (max-width: 1290px) 40vw, (max-width: 1700px) 40vw, 40vw"
-                                 className="rounded-2xl"
+                           <div className="relative w-full h-[18vh] md:h-[15vh] lg:h-[15vh] pt-1">
+                              <Image
+                                 src={item.image}
+                                 alt={item.title}
+                                 className="object-cover"
+                                 fill
+                                 sizes="(max-width: 768px) 30vw,
+                                        (max-width: 1200px) 20vw,
+                                        15vw"
                               />
                            </div>
-                        </span>
-                        <div className="p-2">
-                           <p className="subhead-2 -medium xs-body">
-                              {card.heading}
-                           </p>
-                           <p className="body -book opacity-65 xs-body-small">
-                              {card.description}
-                           </p>
+                           <div className="flex justify-center py-2">
+                              <p className="text-sm md:text-md lg:text-2xl font-medium text-red-800 text-center">
+                                 {item.title}
+                              </p>
+                           </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-            ))}
+                     </li>
+                  ))}
+               </ul>
+            </div>
          </div>
       </section>
    );
