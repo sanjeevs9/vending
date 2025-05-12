@@ -32,7 +32,10 @@ const servings = [
 
 export default function Servings() {
    return (
-      <section className="min-h-[90vh] rounded-sm flex flex-col antialiased bg-white items-center justify-center relative overflow-hidden">
+      <section
+         id="products-section"
+         className="min-h-[90vh] rounded-sm flex flex-col antialiased bg-white items-center justify-center relative overflow-hidden"
+      >
          <div className="flex flex-col justify-center mb-[3vh]">
             <h2 className="text-[4vw] md:text-[3vw] lg:text-[2vw] text-red-500 text-center font-medium">
                Delightful servings, all day, everyday!!

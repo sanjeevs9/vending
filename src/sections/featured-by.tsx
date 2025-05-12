@@ -46,7 +46,6 @@ export default function FeaturedBy() {
       ScrollTrigger.create({
          trigger: '.following-text',
          pin: true,
-         pinSpacing: true,
          start: 'top 50%',
          endTrigger: '.offer-section',
          end: 'bottom bottom'

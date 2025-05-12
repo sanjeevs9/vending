@@ -1,202 +1,121 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-// import { MessageCircle } from 'lucide-react';
-import { useState } from 'react';
+import { ContainerTextFlip } from '@/components/ui/container-text-flip';
+import GradientBackground from './gradient-background';
 
 const Routes = [
    {
-      label: 'Home',
-      href: '/'
-   },
-   {
       label: 'Why us',
-      href: '/tasks'
+      href: 'offer-section'
    },
    {
       label: 'about us',
-      href: '/settings'
+      href: 'about-section'
+   },
+   {
+      label: 'products',
+      href: 'products-section'
    },
    {
       label: 'contact us',
-      href: '/members'
+      href: 'contact-section'
    }
 ];
 
 export default function SmartVendingLandingPage() {
-   const [hoveredButton, setHoveredButton] = useState(null);
+   const handleScroll = (sectionId: string) => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+         section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+         });
+      }
+   };
 
    return (
-      <section className="hero-section relative w-full h-screen overflow-hidden">
-         {/* Background gradient with wave pattern */}
-         <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-400 z-0">
-            <div className="absolute inset-0 opacity-20">
-               {/* SVG wave pattern overlay */}
-               <svg
-                  width="100%"
-                  height="100%"
-                  xmlns="http://www.w3.org/2000/svg"
-               >
-                  <defs>
-                     <pattern
-                        id="wave"
-                        x="0"
-                        y="0"
-                        width="200"
-                        height="200"
-                        patternUnits="userSpaceOnUse"
-                     >
-                        <path
-                           d="M0,100 C40,70 60,130 100,100 C140,70 160,130 200,100 L200,200 L0,200 Z"
-                           fill="red"
+      <GradientBackground>
+         <section className="hero-section relative w-full min-h-screen overflow-hidden">
+            {/* Content container */}
+            <div className="relative z-10 w-full h-full px-[2vw] md:px-[4vw] py-[3vh]">
+               {/* Navigation */}
+               <nav className="flex relative items-center justify-center mb-[4vh]">
+                  {/* Logo */}
+                  <div className="absolute left-0 w-[12vw] md:w-[8vw] lg:w-[6vw] top-0.5">
+                     <img
+                        src="/logos/snackit.png"
+                        alt="logo"
+                        className="w-full h-auto"
+                     />
+                  </div>
+
+                  {/* Navigation links */}
+                  <div className="bg-[#f84d35] bg-opacity-20 rounded-full px-[3vw] py-[1.5vh]">
+                     <ul className="flex gap-[2vw] md:gap-[3vw]">
+                        {Routes.map((el, idx) => (
+                           <li
+                              key={idx + 1}
+                              className="text-white hover:text-slate-600 cursor-pointer text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] transition-colors duration-300"
+                           >
+                              <button onClick={() => handleScroll(el.href)}>
+                                 {el.label}
+                              </button>
+                           </li>
+                        ))}
+                     </ul>
+                  </div>
+               </nav>
+
+               {/* Main content */}
+               <div className="flex flex-col md:flex-row justify-between items-center mt-[4vh]">
+                  {/* Left side - text content */}
+                  <div className="w-full md:w-1/2 mb-[5vh] md:mb-0">
+                     <h1 className="text-white text-[8vw] md:text-[6vw] lg:text-[5vw] font-bold leading-tight mb-[2vh]">
+                        Snack{' '}
+                        <ContainerTextFlip
+                           words={[
+                              'Smarter',
+                              'Healthier',
+                              'Sharper',
+                              'Mindfully'
+                           ]}
                         />
-                        <path
-                           d="M0,50 C40,20 60,80 100,50 C140,20 160,80 200,50 L200,0 L0,0 Z"
-                           fill="red"
-                        />
-                     </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#wave)" />
-               </svg>
-            </div>
-         </div>
+                        <br />
+                        Work better
+                     </h1>
+                     <p className="text-white text-[3vw] md:text-[2vw] lg:text-[1.5vw] mb-[3vh]">
+                        Redefining Convenience Through Smart
+                        <br />
+                        Vending Machines
+                     </p>
+                  </div>
 
-         {/* Content container */}
-         <div className="relative z-10 w-full h-full px-8 md:px-16 py-6">
-            {/* Navigation */}
-            <nav className="flex items-center justify-between mb-12">
-               {/* Logo */}
-               <div className="text-yellow-300 text-3xl font-bold w-20">
-                  <img src="/logos/snackit.png" alt="logo" />
-               </div>
+                  {/* Right side - images */}
+                  <div className="w-full md:w-1/2 relative">
+                     <div className="relative w-full max-w-[80vw] md:max-w-[45vw] mx-auto">
+                        {/* Main vending machine image */}
+                        <div className="relative rounded-3xl overflow-hidden">
+                           <img
+                              src="/hero/b.png"
+                              alt="Smart vending machine with snacks"
+                              className="w-full h-auto aspect-[3/4] object-contain"
+                           />
+                        </div>
 
-               {/* Navigation links */}
-               <div className="bg-white bg-opacity-20 rounded-full px-6 py-3">
-                  <ul className="flex space-x-8">
-                     {Routes.map((el, idx) => (
-                        <li
-                           key={idx + 1}
-                           className="text-black hover:text-blue-600 cursor-pointer"
-                        >
-                           {el.label}
-                        </li>
-                     ))}
-                  </ul>
-               </div>
-            </nav>
-
-            {/* Main content */}
-            <div className="flex flex-col md:flex-row justify-between mt-8">
-               {/* Left side - text content */}
-               <div className="w-full md:w-1/2 mb-10 md:mb-0">
-                  <h1 className="text-white text-6xl md:text-7xl font-bold leading-tight mb-4">
-                     Snack Smarter
-                     <br />
-                     Work better
-                  </h1>
-                  <p className="text-white text-xl mb-8">
-                     Redefining Convenience Through Smart
-                     <br />
-                     Vending Machines
-                  </p>
-                  <button
-                     className="bg-white rounded-full px-6 py-3 flex items-center transition-all"
-                     // onMouseEnter={() => setHoveredButton('main')}
-                     onMouseLeave={() => setHoveredButton(null)}
-                  >
-                     <span className="font-medium mr-2">Know more</span>
-                     <div
-                        className={`bg-black rounded-full p-1 transition-all ${
-                           hoveredButton === 'main'
-                              ? 'transform translate-x-1'
-                              : ''
-                        }`}
-                     >
-                        <svg
-                           width="20"
-                           height="20"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="white"
-                           strokeWidth="2"
-                        >
-                           <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                     </div>
-                  </button>
-               </div>
-
-               {/* Right side - images */}
-               <div className="w-full md:w-1/2 relative">
-                  <div className="relative w-[500] max-w-md mx-auto">
-                     {/* Main vending machine image */}
-                     <div className="relative rounded-3xl overflow-hidden ">
-                        <img
-                           src="/hero/img5.png"
-                           alt="Smart vending machine with snacks"
-                           className="w-[500] h-[600] max-w-full"
-                           style={{ objectFit: 'contain' }}
-                        />
-                     </div>
-
-                     {/* Second vending machine image */}
-                     <div className="absolute bottom-10 -right-8 w-1/2 h-1/2 rounded-2xl overflow-hidden shadow-xl">
-                        <img
-                           src="/hero/img2.jpg"
-                           alt="Blue vending machine"
-                           className="w-full h-full object"
-                        />
+                        {/* Second vending machine image */}
+                        <div className="absolute bottom-[5vh] -right-[2vw] w-1/2 aspect-square rounded-2xl overflow-hidden shadow-xl">
+                           <img
+                              src="/hero/img2.jpg"
+                              alt="Blue vending machine"
+                              className="w-full h-full object-cover"
+                           />
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
-
-            {/* Footer */}
-            <div className="absolute bottom-6 w-full left-0 px-8 md:px-16 flex justify-between items-center">
-               {/* Feedback button */}
-               <button className="flex items-center text-white">
-                  <div className="bg-white bg-opacity-20 p-2 rounded-full mr-2">
-                     {/* <MessageCircle size={24} color="white" /> */}
-                  </div>
-                  <span>Feedback</span>
-               </button>
-
-               {/* Contact buttons */}
-               <div className="flex space-x-4">
-                  <button className="bg-white rounded-full px-4 py-2 flex items-center">
-                     <span className="font-medium mr-2">Whatsapp</span>
-                     <div className="bg-green-500 rounded-full p-1">
-                        <svg
-                           width="20"
-                           height="20"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="white"
-                           strokeWidth="2"
-                        >
-                           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                        </svg>
-                     </div>
-                  </button>
-                  <button className="bg-white rounded-full px-4 py-2 flex items-center">
-                     <span className="font-medium mr-2">Email</span>
-                     <div className="bg-blue-500 rounded-full p-1">
-                        <svg
-                           width="20"
-                           height="20"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="white"
-                           strokeWidth="2"
-                        >
-                           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                           <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                     </div>
-                  </button>
-               </div>
-            </div>
-         </div>
-      </section>
+         </section>
+      </GradientBackground>
    );
 }

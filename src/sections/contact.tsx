@@ -37,7 +37,10 @@ export default function ContactUs() {
    };
 
    return (
-      <section className="contact-section relative overflow-hidden min-h-screen">
+      <section
+         id="contact-section"
+         className="contact-section relative overflow-hidden min-h-screen"
+      >
          {/* Wavy background pattern remains unchanged */}
 
          <div className="min-h-screen flex flex-col md:flex-row items-stretch relative z-10">

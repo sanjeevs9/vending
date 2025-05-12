@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -18,7 +17,7 @@ export default function AboutUs() {
          let animationFrameId: number;
 
          const animate = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
+            startTime ??= timestamp;
             const progress = timestamp - startTime;
 
             if (progress < duration) {
@@ -70,7 +69,10 @@ export default function AboutUs() {
    ];
 
    return (
-      <section className="about-section relative w-full min-h-[50vh] overflow-hidden flex justify-center">
+      <section
+         id="about-section"
+         className="about-section relative w-full min-h-[50vh] overflow-hidden flex justify-center"
+      >
          {/* effect  */}
          <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-400 z-0">
             <div className="absolute inset-0 opacity-20">
@@ -131,7 +133,7 @@ export default function AboutUs() {
 
                <div className="grid grid-cols-1 md:grid-cols-3 gap-[4vw] pb-[5vh]">
                   {stats.map((stat, index) => (
-                     <div key={index} className="text-center">
+                     <div key={index + 1} className="text-center">
                         <div className="flex justify-center">
                            <span className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-bold text-white">
                               {stat.value}

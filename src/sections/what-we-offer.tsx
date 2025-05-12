@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useGSAP } from '@gsap/react';
@@ -114,10 +113,10 @@ export default function WhatWeOffer() {
    }, []);
 
    return (
-      <section className="featured-section relative overflow-x-hidden">
+      <section id="offer-section" className="featured-section relative">
          <div ref={sectionRef}>
             {/* center text */}
-            <div className="h-screen flex items-center justify-center px-4">
+            <div className="h-screen flex items-center justify-center px-4 overflow-hidden">
                <h1
                   ref={headingRef}
                   className="recognition-heading text-center text-[10vw] md:text-[12vw] lg:text-[15vw] font-semibold text-red-600 tracking-tight leading-tight max-w-[90vw]"
@@ -127,7 +126,7 @@ export default function WhatWeOffer() {
             </div>
 
             {/* brands logos */}
-            <div className="absolute inset-0 pointer-events-none overflow-x-hidden">
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
                <ul className="w-full h-full">
                   {Content.map((item, index) => (
                      <li

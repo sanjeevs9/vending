@@ -14,11 +14,11 @@ export default function Home() {
       <div className="overflow-hidden">
          <Hero />
 
-         <FeaturedBy />
+         <WhatWeOffer />
 
          <ActionsVerbs />
 
-         <WhatWeOffer />
+         <FeaturedBy />
 
          <VendingRequirements />
 

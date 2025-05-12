@@ -28,8 +28,6 @@ export const metadata = {
    title: 'Snackit – Your Smart Snack Manager',
    description:
       'Empowering businesses with smart, reliable vending machines for effortless, 24/7 product access.',
-   viewport: 'width=device-width, initial-scale=1.0',
-   themeColor: '#ffffff',
    authors: [{ name: 'Aashish & Sanjeev' }],
    openGraph: {
       title: 'Snackit – Your Smart Snack Manager',

@@ -90,8 +90,8 @@ export default function ActionsVerbs() {
             start: 'top 25%',
             end: 'bottom bottom',
             scrub: 1,
-            pin: true,
-            pinSpacing: false
+            pin: true
+            // pinSpacing: false
          }
       });
 
