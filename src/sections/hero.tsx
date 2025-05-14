@@ -37,7 +37,6 @@ export default function SmartVendingLandingPage() {
    return (
       <GradientBackground>
          <section className="hero-section relative w-full min-h-screen overflow-hidden">
-            {/* Content container */}
             <div className="relative z-10 w-full h-full px-[2vw] md:px-[4vw] py-[3vh]">
                {/* Navigation */}
                <nav className="flex relative items-center justify-center mb-[4vh]">
@@ -92,8 +91,8 @@ export default function SmartVendingLandingPage() {
                   </div>
 
                   {/* Right side - images */}
-                  <div className="w-full md:w-1/2 relative">
-                     <div className="relative w-full max-w-[80vw] md:max-w-[45vw] mx-auto">
+                  <div className="w-full md:w-1/2 relative flex items-center justify-center">
+                     <div className="relative w-full max-w-[80vw] md:max-w-[45vw]">
                         {/* Main vending machine image */}
                         <div className="relative rounded-3xl overflow-hidden">
                            <img
@@ -104,7 +103,7 @@ export default function SmartVendingLandingPage() {
                         </div>
 
                         {/* Second vending machine image */}
-                        <div className="absolute bottom-[5vh] -right-[2vw] w-1/2 aspect-square rounded-2xl overflow-hidden shadow-xl">
+                        <div className="absolute bottom-[8vh] -right-[2vw] w-[20vw] h-[30vw] aspect-square rounded-2xl overflow-hidden shadow-xl">
                            <img
                               src="/hero/img2.jpg"
                               alt="Blue vending machine"

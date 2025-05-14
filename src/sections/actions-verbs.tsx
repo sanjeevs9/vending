@@ -2,7 +2,7 @@
 
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
-import { gsap, Power4 } from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 
@@ -81,17 +81,20 @@ export default function ActionsVerbs() {
    const actionRef3 = useRef<HTMLLIElement>(null);
 
    useGSAP(() => {
-      gsap.set(actionRef2.current, { y: '700%', opacity: 0 });
-      gsap.set(actionRef3.current, { y: '700%', opacity: 0 });
+      // Initial states
+      gsap.set([actionRef2.current, actionRef3.current], {
+         y: '700%',
+         opacity: 0
+      });
 
       const tl = gsap.timeline({
          scrollTrigger: {
             trigger: actionsRef.current,
-            start: 'top 25%',
-            end: 'bottom bottom',
-            scrub: 1,
-            pin: true
-            // pinSpacing: false
+            start: 'top top',
+            end: '+=200%',
+            scrub: 1.5, // Increased for smoother animation
+            pin: true,
+            anticipatePin: 1 // Helps prevent jank
          }
       });
 
@@ -100,20 +103,22 @@ export default function ActionsVerbs() {
          {
             y: 0,
             opacity: 1,
-            ease: Power4.easeOut
+            ease: 'power4.out',
+            duration: 1
          },
-         '<'
-      );
+         '+=0.3'
+      ); // Small delay after scroll starts
+
       tl.to(
          actionRef3.current,
          {
             y: 0,
             opacity: 1,
-            ease: Power4.easeOut,
-            delay: 1
+            ease: 'power4.out',
+            duration: 1
          },
-         '<'
-      );
+         '+=0.3'
+      ); // Bigger delay between animations
    }, []);
 
    return (

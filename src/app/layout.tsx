@@ -25,6 +25,7 @@ const bowlby = Bowlby_One_SC({
 });
 
 export const metadata = {
+   metadataBase: new URL('https://www.snackit.in'),
    title: 'Snackit – Your Smart Snack Manager',
    description:
       'Empowering businesses with smart, reliable vending machines for effortless, 24/7 product access.',

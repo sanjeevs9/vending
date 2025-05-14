@@ -59,17 +59,30 @@ export default function WhatWeOffer() {
 
       // Calculate viewport-relative positions
       const positions = {
-         topLeft: { x: '-50%', y: '-50%' },
-         topRight: { x: '50%', y: '-48%' },
-         bottomLeft: { x: '-50%', y: '50%' },
-         bottomRight: { x: '50%', y: '50%' }
+         topLeft: { x: '-7vw', y: '-11vh' },
+         topRight: { x: '7vw', y: '-11vh' },
+         bottomLeft: { x: '-7vw', y: '11vh' },
+         bottomRight: { x: '7vw', y: '11vh' }
       };
-
+      gsap.set(
+         [
+            imageRef1.current,
+            imageRef2.current,
+            imageRef3.current,
+            imageRef4.current
+         ],
+         {
+            xPercent: -50, // Center horizontally
+            yPercent: -50 // Center vertically
+            // opacity: 0,
+            // scale: 0.5
+         }
+      );
       // Initial positions (off screen)
-      gsap.set(imageRef1.current, { x: '-450%', y: '-500%', rotation: 2 });
-      gsap.set(imageRef2.current, { x: '400%', y: '-500%', rotation: -2 });
-      gsap.set(imageRef3.current, { x: '-400%', y: '500%', rotation: -2 });
-      gsap.set(imageRef4.current, { x: '400%', y: '500%', rotation: 2 });
+      gsap.set(imageRef1.current, { x: '-200vh', y: '-200vh', rotation: 2 });
+      gsap.set(imageRef2.current, { x: '200vh', y: '-200vh', rotation: -2 });
+      gsap.set(imageRef3.current, { x: '-200vh', y: '200vh', rotation: -2 });
+      gsap.set(imageRef4.current, { x: '200vh', y: '200vh', rotation: 2 });
 
       const tl = gsap.timeline({
          scrollTrigger: {
@@ -83,7 +96,7 @@ export default function WhatWeOffer() {
 
       // Scale down heading
       tl.to(headingRef.current, {
-         scale: 0.4,
+         scale: 0.3,
          ease: 'power2.inOut',
          duration: 1
       });
@@ -119,7 +132,7 @@ export default function WhatWeOffer() {
             <div className="h-screen flex items-center justify-center px-4 overflow-hidden">
                <h1
                   ref={headingRef}
-                  className="recognition-heading text-center text-[10vw] md:text-[12vw] lg:text-[15vw] font-semibold text-red-600 tracking-tight leading-tight max-w-[90vw]"
+                  className="recognition-heading text-center text-[10vw] md:text-[8vw] lg:text-[10vw] font-semibold text-red-600 tracking-tight leading-tight max-w-[90vw]"
                >
                   What we offer you?
                </h1>
