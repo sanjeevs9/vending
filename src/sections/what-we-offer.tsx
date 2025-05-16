@@ -10,26 +10,26 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Content = [
    {
-      image: '/test2/img1.png',
+      image: '/offer/img1.png',
       title: 'Zero Capital Investment.',
       description: 'Enjoy our vending services with no upfront cost.',
       bg: '#30c858'
    },
    {
-      image: '/test2/img3.png',
+      image: '/offer/img3.png',
       title: 'Complete Convenience',
       description: 'We handle everything from logistics to maintenance',
       bg: '#fbdcfb'
    },
    {
-      image: '/test2/img2.png',
+      image: '/offer/img2.png',
       title: 'Rapid Refill Support',
       description:
          'Our refill team ensures minimal downtime and quick replenishment',
       bg: '#c9a68b'
    },
    {
-      image: '/test2/img4.png',
+      image: '/offer/img4.png',
       title: 'Curated Snack Selection',
       description:
          'A wide variety of hand-picked, round-the-clock snacking options.',

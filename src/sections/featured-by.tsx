@@ -11,28 +11,28 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Content = [
    {
-      image: '/test/img1.png',
+      image: '/featuredby/img1.png',
       heading: '4pm snack craving? Snackit is here.',
       description:
          'Bengaluru-based bootstrapped startup Snackit rents out vending machines stacked with healthy snack options and beverages to corporates, and claims to clock up over 4,000 transactions each day.',
       link: 'https://yourstory.com/2017/07/snackit-startup-snack-healthy-munchies-vending-machines'
    },
    {
-      image: '/test/img2.png',
+      image: '/featuredby/img2.png',
       heading: 'Stack up on snacks: snack vending machines at workplaces',
       description:
          '“The name Snackit also means ‘snack for IT’, says Ashish, who then explains what made him start this venture',
       link: 'https://www.thehindu.com/life-and-style/food/a-snack-vending-machine-in-bengaluru/article20443929.ece'
    },
    {
-      image: '/test/img3.png',
+      image: '/featuredby/img3.png',
       heading: 'We are Associated with 45 Plus Corporates and Looking Forward',
       description:
          'Snackit Vending fulfills the most basic requirement of corporate offices - food and beverages for the staff/associates.',
       link: 'https://www.bwdisrupt.com/article/we-are-associated-with-45-plus-corporates-and-looking-forward-for-growth-of-40-by-june-2017-says-ashish-nimodia-founder-snackit-106775'
    },
    {
-      image: '/test/img4.png',
+      image: '/featuredby/img4.png',
       heading: 'How this start-up is changing the snacking system',
       description:
          'After completing his management degree, Ashish got selected to join a corporate banking company through the campus placement and went on to join the company like many others to become successful with hopes of climbing the corporate ladder.',
@@ -54,7 +54,7 @@ export default function FeaturedBy() {
    }, []);
 
    return (
-      <section className="offer-section relative z-10 grid py-[20vh] overflow-x-hidden">
+      <section className="offer-section relative z-1 grid py-[20vh] overflow-x-hidden">
          {/* following text  */}
          <div className="alternating-text-view absolute left-0 top-[15vh] h-screen w-full">
             <div className="following-text">

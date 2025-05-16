@@ -6,7 +6,7 @@ export default function Footer() {
          {/* Main logo text */}
          <div className="flex-grow flex items-end justify-center py-[5vh]">
             <h1 className="text-red-600 text-[20vw] md:text-[12vw] lg:text-[20vw] font-bold tracking-tight">
-               SNACKIT
+               Snackit
             </h1>
          </div>
 

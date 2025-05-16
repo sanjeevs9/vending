@@ -109,6 +109,12 @@ body {
    font-family: var(--font-inter);
 }
 
+h1,
+h2,
+h3 {
+   font-family: var(--font-heading);
+}
+
 p::selection,
 li::selection,
 img::selection,
@@ -160,10 +166,6 @@ a::selection {
 
 .opacity-65 {
    opacity: 0.65;
-}
-
-.font-bowlby {
-   font-family: var(--font-bowlby-sc);
 }
 
 .font-inter {

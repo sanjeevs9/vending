@@ -1,15 +1,6 @@
-import { Bowlby_One_SC, Geist, Geist_Mono, Inter } from 'next/font/google';
+import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
-
-const geistSans = Geist({
-   variable: '--font-geist-sans',
-   subsets: ['latin']
-});
-
-const geistMono = Geist_Mono({
-   variable: '--font-geist-mono',
-   subsets: ['latin']
-});
 
 const inter = Inter({
    variable: '--font-inter',
@@ -17,11 +8,22 @@ const inter = Inter({
    display: 'swap'
 });
 
-const bowlby = Bowlby_One_SC({
-   subsets: ['latin'],
+export const sequelBody = localFont({
+   src: '../../public/fonts/sequel-body.otf', // or .otf
    display: 'swap',
-   variable: '--font-bowlby-sc',
-   weight: '400'
+   variable: '--font-body'
+});
+
+export const sequelDisplay = localFont({
+   src: '../../public/fonts/sequel-disp.otf', // or .otf
+   display: 'swap',
+   variable: '--font-display'
+});
+
+export const sequelHeading = localFont({
+   src: '../../public/fonts/sequel-head.otf', // or .otf
+   display: 'swap',
+   variable: '--font-heading'
 });
 
 export const metadata = {
@@ -74,7 +76,7 @@ export default function RootLayout({
    return (
       <html lang="en">
          <body
-            className={`${geistSans.variable} ${geistMono.variable} ${bowlby.variable} ${inter.variable} antialiased`}
+            className={`${inter.variable} ${sequelBody.variable} ${sequelDisplay.variable} ${sequelHeading.variable} antialiased`}
          >
             <main>{children}</main>
          </body>

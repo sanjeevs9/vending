@@ -31,16 +31,16 @@ const requirements = [
 
 const images = [
    'need/img1.png',
-   'offer/img2.png',
    'need/img2.png',
-   'offer/img4.png'
+   'need/img3.png',
+   'need/img4.png'
 ];
 
 export default function VendingRequirements() {
    const [hoveredIndex, setHoveredIndex] = useState<number | null>(0);
 
    return (
-      <section className="need-section relative md:min-h-[120vh] min-h-[90vh] overflow-hidden">
+      <section className="need-section relative w-[92%] mx-auto md:min-h-[110vh] min-h-[90vh] overflow-hidden">
          {/* Page heading */}
          <div className="w-full md:py-[5vh] px-[3vw]">
             <h1 className="text-[7vw] md:text-[5vw] lg:text-[4vw] font-bold text-red-500 text-right mr-[3vw] md:mr-[5vw]">
@@ -139,7 +139,7 @@ export default function VendingRequirements() {
                         className={`absolute inset-0 transition-opacity duration-500 flex items-center justify-center 
                            ${
                               hoveredIndex === index
-                                 ? 'opacity-100 z-10'
+                                 ? 'opacity-100 z-1'
                                  : 'opacity-0 z-0'
                            }`}
                      >
@@ -177,13 +177,13 @@ export default function VendingRequirements() {
                   <div
                      className={`absolute inset-0 transition-opacity duration-500 flex items-center justify-center ${
                         hoveredIndex === null
-                           ? 'opacity-100 z-10'
+                           ? 'opacity-100 z-1'
                            : 'opacity-0 z-0'
                      }`}
                   >
                      <div className="relative w-[80%] max-w-[50vw] aspect-square rounded-3xl overflow-hidden transform rotate-6 shadow-xl">
                         <img
-                           src="/need/img3.png"
+                           src="/need/img0.png"
                            alt="Vending machine with person"
                            className="w-full h-full object-cover"
                         />

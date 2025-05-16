@@ -43,7 +43,7 @@ export default function ContactUs() {
       >
          {/* Wavy background pattern remains unchanged */}
 
-         <div className="min-h-screen flex flex-col md:flex-row items-stretch relative z-10">
+         <div className="min-h-screen flex flex-col md:flex-row items-stretch relative">
             {/* Contact info column */}
             <div className="w-full lg:w-1/3 p-[3vh] lg:p-[5vh] flex flex-col justify-center">
                <h1 className="text-[4vw] md:text-[3vw] lg:text-[2vw] font-semibold text-red-800">
