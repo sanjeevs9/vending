@@ -8,11 +8,14 @@ import OurMachine from '@/sections/our-machine';
 import Servings from '@/sections/servings';
 import VendingRequirements from '@/sections/what-we-need';
 import WhatWeOffer from '@/sections/what-we-offer';
+import WhyUsSection from '@/sections/why-us';
 
 export default function Home() {
    return (
       <div className="overflow-hidden">
          <Hero />
+
+         <WhyUsSection />
 
          <WhatWeOffer />
 

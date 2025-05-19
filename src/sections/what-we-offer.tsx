@@ -1,9 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
 import { useRef } from 'react';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -12,28 +12,27 @@ const Content = [
    {
       image: '/offer/img1.png',
       title: 'Zero Capital Investment.',
-      description: 'Enjoy our vending services with no upfront cost.',
-      bg: '#30c858'
-   },
-   {
-      image: '/offer/img3.png',
-      title: 'Complete Convenience',
-      description: 'We handle everything from logistics to maintenance',
-      bg: '#fbdcfb'
+      dimension: 'h-[25vh] w-[28vh]'
    },
    {
       image: '/offer/img2.png',
-      title: 'Rapid Refill Support',
-      description:
-         'Our refill team ensures minimal downtime and quick replenishment',
-      bg: '#c9a68b'
+      title: 'Complete Convenience',
+      dimension: 'h-[25vh] w-[28vh]'
+   },
+   {
+      image: '/offer/img3.png',
+      title: 'Smart Vending Machine',
+      dimension: 'h-[25vh] w-[30vh]'
    },
    {
       image: '/offer/img4.png',
       title: 'Curated Snack Selection',
-      description:
-         'A wide variety of hand-picked, round-the-clock snacking options.',
-      bg: '#509dd4'
+      dimension: 'h-[25vh] w-[28vh]'
+   },
+   {
+      image: '/offer/img5.png',
+      title: 'Uncompromised Quality',
+      dimension: 'h-[28vh] w-[28vh]'
    }
 ];
 
@@ -45,6 +44,7 @@ export default function WhatWeOffer() {
    const imageRef2 = useRef<HTMLLIElement>(null);
    const imageRef3 = useRef<HTMLLIElement>(null);
    const imageRef4 = useRef<HTMLLIElement>(null);
+   const imageRef5 = useRef<HTMLLIElement>(null);
 
    useGSAP(() => {
       if (
@@ -53,7 +53,8 @@ export default function WhatWeOffer() {
          !imageRef1.current ||
          !imageRef2.current ||
          !imageRef3.current ||
-         !imageRef4.current
+         !imageRef4.current ||
+         !imageRef5.current
       )
          return;
 
@@ -62,20 +63,21 @@ export default function WhatWeOffer() {
          topLeft: { x: '-7vw', y: '-11vh' },
          topRight: { x: '7vw', y: '-11vh' },
          bottomLeft: { x: '-7vw', y: '11vh' },
-         bottomRight: { x: '7vw', y: '11vh' }
+         bottomRight: { x: '7vw', y: '11vh' },
+         leftCenter: { x: '0', y: '0' }
       };
+
       gsap.set(
          [
             imageRef1.current,
             imageRef2.current,
             imageRef3.current,
-            imageRef4.current
+            imageRef4.current,
+            imageRef5.current
          ],
          {
             xPercent: -50, // Center horizontally
             yPercent: -50 // Center vertically
-            // opacity: 0,
-            // scale: 0.5
          }
       );
       // Initial positions (off screen)
@@ -83,6 +85,7 @@ export default function WhatWeOffer() {
       gsap.set(imageRef2.current, { x: '200vh', y: '-200vh', rotation: -2 });
       gsap.set(imageRef3.current, { x: '-200vh', y: '200vh', rotation: -2 });
       gsap.set(imageRef4.current, { x: '200vh', y: '200vh', rotation: 2 });
+      gsap.set(imageRef5.current, { x: '200vh', rotation: 2 });
 
       const tl = gsap.timeline({
          scrollTrigger: {
@@ -106,7 +109,8 @@ export default function WhatWeOffer() {
          { ref: imageRef1.current, pos: positions.topLeft },
          { ref: imageRef2.current, pos: positions.topRight },
          { ref: imageRef3.current, pos: positions.bottomLeft },
-         { ref: imageRef4.current, pos: positions.bottomRight }
+         { ref: imageRef4.current, pos: positions.bottomRight },
+         { ref: imageRef5.current, pos: positions.leftCenter }
       ];
 
       cards.forEach((card) => {
@@ -145,29 +149,24 @@ export default function WhatWeOffer() {
                      <li
                         key={index + 1}
                         ref={
-                           [imageRef1, imageRef2, imageRef3, imageRef4][index]
+                           [
+                              imageRef1,
+                              imageRef2,
+                              imageRef3,
+                              imageRef4,
+                              imageRef5
+                           ][index]
                         }
                         className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[30vw] md:w-[20vw] lg:w-[15vw] max-w-sm will-change-transform"
                      >
                         <div
-                           className={`backdrop-blur-lg rounded-xl shadow-lg p-1 bg-[${item.bg}]`}
+                           className={`relative ${item.dimension} rounded-3xl overflow-hidden`}
                         >
-                           <div className="relative w-full h-[18vh] md:h-[18vh] lg:h-[17vh] pt-1">
-                              <Image
-                                 src={item.image}
-                                 alt={item.title}
-                                 className="object-cover"
-                                 fill
-                                 sizes="(max-width: 768px) 30vw,
-                                        (max-width: 1200px) 20vw,
-                                        15vw"
-                              />
-                           </div>
-                           <div className="flex justify-center py-2">
-                              <p className="text-sm md:text-md lg:text-[2vh] font-medium text-red-800 text-center">
-                                 {item.title}
-                              </p>
-                           </div>
+                           <img
+                              src={item.image}
+                              alt={item.title}
+                              className="h-full w-full object-cover"
+                           />
                         </div>
                      </li>
                   ))}
