@@ -10,10 +10,10 @@ if (typeof window !== 'undefined') {
 }
 
 export default function WhyUsSection() {
-   const sectionRef = useRef(null);
-   const headingRef = useRef(null);
-   const leftItemsRef = useRef([]);
-   const rightItemsRef = useRef([]);
+   const sectionRef = useRef<HTMLElement | null>(null);
+   const headingRef = useRef<HTMLDivElement | null>(null);
+   const leftItemsRef = useRef<(HTMLDivElement | null)[]>([]);
+   const rightItemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
    // Data for the section
    const leftItems = [
@@ -57,20 +57,22 @@ export default function WhyUsSection() {
          gsap.set(rightItemsRef.current, { autoAlpha: 0, x: 50 });
 
          // Animate heading
-         gsap.fromTo(
-            headingRef.current.children,
-            { autoAlpha: 0, y: -30 },
-            {
-               autoAlpha: 1,
-               y: 0,
-               duration: 1,
-               stagger: 0.2,
-               ease: 'power3.out'
-            }
-         );
+         if (headingRef.current) {
+            gsap.fromTo(
+               headingRef.current.children,
+               { autoAlpha: 0, y: -30 },
+               {
+                  autoAlpha: 1,
+                  y: 0,
+                  duration: 1,
+                  stagger: 0.2,
+                  ease: 'power3.out'
+               }
+            );
+         }
 
          // Create scroll animations for each left item
-         leftItemsRef.current.forEach((item, index) => {
+         leftItemsRef.current.forEach((item) => {
             gsap.fromTo(
                item,
                { autoAlpha: 0, x: -50 },
@@ -92,7 +94,7 @@ export default function WhyUsSection() {
          });
 
          // Create scroll animations for each right item
-         rightItemsRef.current.forEach((item, index) => {
+         rightItemsRef.current.forEach((item) => {
             gsap.fromTo(
                item,
                { autoAlpha: 0, x: 50 },
@@ -139,7 +141,9 @@ export default function WhyUsSection() {
                {leftItems.map((item, index) => (
                   <div
                      key={`left-${index + 1}`}
-                     ref={(el) => (leftItemsRef.current[index] = el)}
+                     ref={(el) => {
+                        leftItemsRef.current[index] = el;
+                     }}
                      className="p-4"
                   >
                      <p className="text-lg text-green-500">{item.title}</p>
@@ -152,7 +156,9 @@ export default function WhyUsSection() {
                {rightItems.map((item, index) => (
                   <div
                      key={`right-${index + 1}`}
-                     ref={(el) => (rightItemsRef.current[index] = el)}
+                     ref={(el) => {
+                        rightItemsRef.current[index] = el;
+                     }}
                      className="p-4"
                   >
                      <p className="text-lg text-green-500">{item.title}</p>

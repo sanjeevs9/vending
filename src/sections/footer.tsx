@@ -10,19 +10,32 @@ export default function Footer() {
             </h1>
          </div>
 
+         {/* Policy links */}
+         <div className="w-full flex justify-center gap-[4vw] md:gap-[3vw] pb-[3vh]">
+            <Link
+               href="/terms"
+               className="text-[2.5vw] md:text-[1.3vw] lg:text-[0.9vw] text-gray-400 hover:text-[#E7000B] transition-colors duration-300"
+            >
+               Terms &amp; Conditions
+            </Link>
+            <Link
+               href="/privacy"
+               className="text-[2.5vw] md:text-[1.3vw] lg:text-[0.9vw] text-gray-400 hover:text-[#E7000B] transition-colors duration-300"
+            >
+               Privacy Policy
+            </Link>
+            <Link
+               href="/refund"
+               className="text-[2.5vw] md:text-[1.3vw] lg:text-[0.9vw] text-gray-400 hover:text-[#E7000B] transition-colors duration-300"
+            >
+               Refund &amp; Cancellation
+            </Link>
+         </div>
+
          {/* Copyright text */}
-         <div className="w-full py-[2vh] px-[3vw] flex flex-col md:flex-row justify-between items-center text-gray-400">
+         <div className="w-full py-[2vh] px-[3vw] flex flex-col md:flex-row justify-between items-center text-gray-400 border-t border-gray-100">
             <p className="text-[2.5vw] md:text-[1.5vw] lg:text-[1vw] mb-[1vh] md:mb-0">
                © {new Date().getFullYear()} SNACKIT. All rights reserved.
-            </p>
-            <p className="text-[2.5vw] md:text-[1.5vw] lg:text-[1vw]">
-               Created by{' '}
-               <Link
-                  href="https://twitter.com/aashish_kathait"
-                  className="hover:text-red-500 transition-colors duration-300"
-               >
-                  @aashish_k
-               </Link>
             </p>
          </div>
       </footer>

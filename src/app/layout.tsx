@@ -8,19 +8,19 @@ const inter = Inter({
    display: 'swap'
 });
 
-export const sequelBody = localFont({
+const sequelBody = localFont({
    src: '../../public/fonts/sequel-body.otf', // or .otf
    display: 'swap',
    variable: '--font-body'
 });
 
-export const sequelDisplay = localFont({
+const sequelDisplay = localFont({
    src: '../../public/fonts/sequel-disp.otf', // or .otf
    display: 'swap',
    variable: '--font-display'
 });
 
-export const sequelHeading = localFont({
+const sequelHeading = localFont({
    src: '../../public/fonts/sequel-head.otf', // or .otf
    display: 'swap',
    variable: '--font-heading'

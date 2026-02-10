@@ -33,7 +33,7 @@ export function ContainerTextFlip({
    const updateWidthForWord = () => {
       if (textRef.current) {
          // Add some padding to the text width (30px on each side)
-         // @ts-ignore
+         // @ts-expect-error - scrollWidth is available on HTML elements
          const textWidth = textRef.current.scrollWidth + 30;
          setWidth(textWidth);
       }
@@ -59,7 +59,7 @@ export function ContainerTextFlip({
          animate={{ width }}
          transition={{ duration: animationDuration / 2000 }}
          className={cn(
-            'relative inline-block rounded-lg pt-[1vh] pb-[1.5vh] text-center font-bold text-red-800',
+            'relative inline-block rounded-lg pt-[1vh] pb-[1.5vh] text-center font-bold text-[#E7000B]',
             'text-[8vw] md:text-[6vw] lg:text-[5vw]', // Responsive text sizing
             className
          )}
