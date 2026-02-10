@@ -37,7 +37,7 @@ export default function Servings() {
          className="min-h-[90vh] rounded-sm flex flex-col antialiased bg-white items-center justify-center relative overflow-hidden"
       >
          <div className="flex flex-col justify-center mb-[3vh]">
-            <h2 className="text-[4vw] md:text-[3vw] lg:text-[2vw] text-red-500 text-center font-medium">
+            <h2 className="text-[16px] md:text-[3vw] lg:text-[2vw] xl:text-[26px] text-primary text-center font-medium">
                Delightful servings, all day, everyday!!
             </h2>
          </div>

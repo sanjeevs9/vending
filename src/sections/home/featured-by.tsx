@@ -58,7 +58,7 @@ export default function FeaturedBy() {
          {/* following text  */}
          <div className="alternating-text-view absolute left-0 top-[15vh] h-screen w-full">
             <div className="following-text">
-               <h1 className="text-[13vw] md:text-[9vw] lg:text-[7vw] xl:text-[7vw] font-bold text-red-500 text-center leading-tight">
+               <h1 className="text-[36px] md:text-[9vw] lg:text-[7vw] xl:text-[86px] font-bold text-primary text-center leading-tight">
                   Featured by
                </h1>
             </div>
@@ -76,7 +76,7 @@ export default function FeaturedBy() {
                         )}
                      >
                         <div
-                           className="_media-card color-orange backdrop-blur-lg"
+                           className="_media-card color-accent-orange backdrop-blur-lg"
                            style={{
                               translate: 'none',
                               rotate: 'none',
@@ -89,14 +89,14 @@ export default function FeaturedBy() {
                                  src={card.image}
                                  alt="card"
                                  sizes="(max-width: 1023px) 70vw, (max-width: 1290px) 40vw, (max-width: 1700px) 40vw, 40vw"
-                                 className="rounded-2xl h-[12vh]"
+                                 className="rounded-2xl h-[8vh] md:h-[12vh]"
                               />
                            </div>
                            <div className="p-2">
-                              <p className="subhead-2 -medium xs-body">
+                              <p className="subhead-2 -medium xs-body text-[14px] md:text-[clamp(19px,17.518px+100vw*0.0038,24px)]">
                                  {card.heading}
                               </p>
-                              <p className="body -book opacity-65 xs-body-small">
+                              <p className="body -book opacity-65 xs-body-small text-[12px] md:text-[14px]">
                                  {card.description
                                     .split(' ')
                                     .slice(0, 10)

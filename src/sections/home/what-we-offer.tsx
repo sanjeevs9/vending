@@ -12,27 +12,27 @@ const Content = [
    {
       image: '/offer/img1.png',
       title: 'Zero Capital Investment.',
-      dimension: 'h-[25vh] w-[28vh]'
+      dimension: 'h-[18vh] w-[20vh] md:h-[25vh] md:w-[28vh]'
    },
    {
       image: '/offer/img2.png',
       title: 'Complete Convenience',
-      dimension: 'h-[25vh] w-[28vh]'
-   },
+      dimension: 'h-[18vh] w-[20vh] md:h-[25vh] md:w-[28vh]'
+   }, 
    {
       image: '/offer/img3.png',
       title: 'Smart Vending Machine',
-      dimension: 'h-[25vh] w-[30vh]'
+      dimension: 'h-[18vh] w-[20vh] md:h-[25vh] md:w-[30vh]'
    },
    {
       image: '/offer/img4.png',
       title: 'Curated Snack Selection',
-      dimension: 'h-[25vh] w-[28vh]'
+      dimension: 'h-[18vh] w-[20vh] md:h-[25vh] md:w-[28vh]'
    },
    {
       image: '/offer/img5.png',
       title: 'Uncompromised Quality',
-      dimension: 'h-[28vh] w-[28vh]'
+      dimension: 'h-[18vh] w-[20vh] md:h-[28vh] md:w-[28vh]'
    }
 ];
 
@@ -136,7 +136,7 @@ export default function WhatWeOffer() {
             <div className="h-screen flex items-center justify-center px-4 overflow-hidden">
                <h1
                   ref={headingRef}
-                  className="recognition-heading text-center text-[10vw] md:text-[8vw] lg:text-[10vw] font-semibold text-red-600 tracking-tight leading-tight max-w-[90vw]"
+                  className="recognition-heading text-center text-[8vw] md:text-[7vw] lg:text-[7vw] xl:text-[7vw] font-semibold text-primary tracking-tight leading-tight max-w-[90vw]"
                >
                   What we offer you?
                </h1>

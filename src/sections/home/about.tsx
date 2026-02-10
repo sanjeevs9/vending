@@ -72,7 +72,7 @@ export default function AboutUs() {
    return (
       <section
          id="about-section"
-         className="about-section relative w-full min-h-[50vh] overflow-hidden flex justify-center bg-[#f5f5f5]"
+         className="about-section relative w-full min-h-[50vh] overflow-hidden flex justify-center bg-[#f5f5f5] xl:py-[60px]"
       >
          {/* === DECORATIVE ELEMENTS === */}
 
@@ -124,21 +124,21 @@ export default function AboutUs() {
          {/* main content */}
          <div className="relative z-10 w-full py-[5vh] px-[3vw]">
             <div
-               className="max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] mx-auto"
+               className="max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[980px] mx-auto"
                ref={sectionRef}
             >
                <div className="text-center mb-[2vh]">
-                  <span className="text-[#FDB12B] text-[2.5vw] md:text-[1.5vw] lg:text-[1vw] font-medium font-geist-mono tracking-widest uppercase">
+                  <span className="text-primary text-[12px] md:text-[1.5vw] lg:text-[1vw] xl:text-[14px] font-medium font-geist-mono tracking-widest uppercase">
                      About Us
                   </span>
                </div>
 
-               <h2 className="text-[6vw] md:text-[4vw] lg:text-[3vw] font-bold text-center text-[#1a1a1a] mb-[3vh]">
+               <h2 className="text-[6vw] md:text-[4vw] lg:text-[3vw] xl:text-[38px] font-bold text-center text-[#1a1a1a] mb-[3vh]">
                   We&apos;re snack lovers, just like you!
                </h2>
 
                <div className="flex mx-[3vw] md:mx-0">
-                  <p className="text-[#1a1a1a]/50 max-w-[90vw] md:max-w-[70vw] lg:max-w-[60vw] mx-auto mb-[5vh] text-justify text-[3vw] md:text-[1.8vw] lg:text-[1.2vw] leading-relaxed">
+                  <p className="text-[#1a1a1a]/50 max-w-[90vw] md:max-w-[70vw] lg:max-w-[60vw] xl:max-w-[840px] mx-auto mb-[5vh] text-justify text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] leading-relaxed">
                      At Snackit, we believe snacks are more than just food —
                      they&apos;re moments of joy and quick pick-me-ups wherever
                      you are. With smart tech and your favorites always stocked,
@@ -150,13 +150,13 @@ export default function AboutUs() {
                   {stats.map((stat, index) => (
                      <div key={index + 1} className="text-center">
                         <div className="flex justify-center">
-                           <span className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-bold text-[#E7000B]">
+                           <span className="text-[8vw] md:text-[5vw] lg:text-[4vw] xl:text-[48px] font-bold text-primary">
                               {stat.value}
                               {stat.symbol}
                            </span>
                         </div>
 
-                        <p className="text-[#1a1a1a]/60 mt-[1vh] text-[3vw] md:text-[2vw] lg:text-[1.5vw]">
+                        <p className="text-[#1a1a1a]/60 mt-[1vh] text-[14px] md:text-[2vw] lg:text-[1.5vw] xl:text-[18px]">
                            {stat.label}
                         </p>
                      </div>

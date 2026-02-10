@@ -39,14 +39,14 @@ export default function ContactUs() {
    return (
       <section
          id="contact-section"
-         className="contact-section relative overflow-hidden min-h-screen"
+         className="contact-section relative overflow-hidden min-h-screen max-w-[1400px] mx-auto"
       >
          {/* Wavy background pattern remains unchanged */}
 
          <div className="min-h-screen flex flex-col md:flex-row items-stretch relative">
             {/* Contact info column */}
             <div className="w-full lg:w-1/3 p-[3vh] lg:p-[5vh] flex flex-col justify-center">
-               <h1 className="text-[4vw] md:text-[3vw] lg:text-[2vw] font-semibold text-red-800">
+               <h1 className="text-[20px] md:text-[3vw] lg:text-[2vw] xl:text-[26px] font-semibold text-primary">
                   Get in touch
                </h1>
 
@@ -55,7 +55,7 @@ export default function ContactUs() {
                   <p className="flex items-start gap-[1vw]">
                      <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-[3vw] h-[3vw] md:w-[2vw] md:h-[2vw] lg:w-[1.5vw] lg:h-[1.5vw] text-red-500"
+                        className="w-[18px] h-[18px] md:w-[2vw] md:h-[2vw] lg:w-[1.5vw] lg:h-[1.5vw] text-red-500"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -73,7 +73,7 @@ export default function ContactUs() {
                         />
                      </svg>
 
-                     <span className="text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] text-gray-700 w-full">
+                     <span className="text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] text-text-secondary w-full">
                         Avyan Techserve Private Limited
                         <br />
                         # 2280, 16th cross, 21st A Main
@@ -87,7 +87,7 @@ export default function ContactUs() {
                   <p className="flex items-start gap-[1vw]">
                      <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-[3vw] h-[3vw] md:w-[2vw] md:h-[2vw] lg:w-[1.5vw] lg:h-[1.5vw] text-red-500"
+                        className="w-[18px] h-[18px] md:w-[2vw] md:h-[2vw] lg:w-[1.5vw] lg:h-[1.5vw] text-red-500"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -100,7 +100,7 @@ export default function ContactUs() {
                         />
                      </svg>
 
-                     <span className="text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] text-gray-700 w-full">
+                     <span className="text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] text-text-secondary w-full">
                         +91 99802 20000
                         <br />
                         +91 99805 52200
@@ -112,7 +112,7 @@ export default function ContactUs() {
                   <p className="flex items-start gap-[1vw]">
                      <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-[3vw] h-[3vw] md:w-[2vw] md:h-[2vw] lg:w-[1.5vw] lg:h-[1.5vw] text-red-500"
+                        className="w-[18px] h-[18px] md:w-[2vw] md:h-[2vw] lg:w-[1.5vw] lg:h-[1.5vw] text-red-500"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -125,14 +125,14 @@ export default function ContactUs() {
                         />
                      </svg>
 
-                     <span className="text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] text-gray-700 w-full">
+                     <span className="text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] text-text-secondary w-full">
                         info@snackit.in
                      </span>
                   </p>
 
                   {/* Social Media section */}
                   <div className="mt-[3vh] md:mt-[4vh]">
-                     <h3 className="text-[3vw] md:text-[2vw] lg:text-[1.5vw] text-red-800">
+                     <h3 className="text-[16px] md:text-[2vw] lg:text-[1.5vw] xl:text-[18px] text-primary">
                         Follow us
                      </h3>
 
@@ -143,7 +143,7 @@ export default function ContactUs() {
                            href="https://www.facebook.com/snackitvend"
                         >
                            <svg
-                              className="w-[4vw] h-[4vw] md:w-[3vw] md:h-[3vw] lg:w-[2vw] lg:h-[2vw]"
+                              className="w-[24px] h-[24px] md:w-[3vw] md:h-[3vw] lg:w-[2vw] lg:h-[2vw]"
                               viewBox="0 0 24 24"
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +160,7 @@ export default function ContactUs() {
                            href="https://www.linkedin.com/company/snackit-co-in/"
                         >
                            <svg
-                              className="w-[4vw] h-[4vw] md:w-[3vw] md:h-[3vw] lg:w-[2vw] lg:h-[2vw]"
+                              className="w-[24px] h-[24px] md:w-[3vw] md:h-[3vw] lg:w-[2vw] lg:h-[2vw]"
                               viewBox="0 0 24 24"
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +197,7 @@ export default function ContactUs() {
                               placeholder="Name"
                               value={formData.name}
                               onChange={handleChange}
-                              className="w-full bg-transparent border border-black rounded-md p-[2vh] text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[2vh] text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
                            />
                         </div>
                         <div>
@@ -208,7 +208,7 @@ export default function ContactUs() {
                               placeholder="Email"
                               value={formData.email}
                               onChange={handleChange}
-                              className="w-full bg-transparent border border-black rounded-md p-[2vh] text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[2vh] text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
                            />
                         </div>
                      </div>
@@ -221,7 +221,7 @@ export default function ContactUs() {
                               placeholder="Mobile number"
                               value={formData.mobile}
                               onChange={handleChange}
-                              className="w-full bg-transparent border border-black rounded-md p-[2vh] text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[2vh] text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
                            />
                         </div>
                         <div>
@@ -231,7 +231,7 @@ export default function ContactUs() {
                               placeholder="Company"
                               value={formData.company}
                               onChange={handleChange}
-                              className="w-full bg-transparent border border-black rounded-md p-[2vh] text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[2vh] text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
                            />
                         </div>
                      </div>
@@ -243,7 +243,7 @@ export default function ContactUs() {
                            placeholder="Subject"
                            value={formData.subject}
                            onChange={handleChange}
-                           className="w-full bg-transparent border border-black rounded-md p-[2vh] text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
+                           className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[2vh] text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
                         />
                      </div>
 
@@ -255,7 +255,7 @@ export default function ContactUs() {
                            value={formData.message}
                            onChange={handleChange}
                            rows={6}
-                           className="w-full bg-transparent border border-black rounded-md p-[2vh] text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
+                           className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[2vh] text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black"
                         ></textarea>
                      </div>
 
@@ -263,13 +263,13 @@ export default function ContactUs() {
                         <button
                            type="button"
                            onClick={handleClear}
-                           className="px-[3vw] py-[1.5vh] text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] text-gray-300 rounded-full hover:bg-gray-100 transition duration-300"
+                           className="px-[16px] md:px-[3vw] py-[10px] md:py-[1.5vh] text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] text-text-secondary rounded-full bg-gray-200 hover:bg-gray-300 transition duration-300 cursor-pointer"
                         >
                            Clear
                         </button>
                         <button
                            type="submit"
-                           className="px-[3vw] py-[1.5vh] text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] bg-red-700 text-white rounded-full hover:bg-gray-800 transition duration-300"
+                           className="px-[16px] md:px-[3vw] py-[10px] md:py-[1.5vh] text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] from-primary-dark to-primary bg-gradient-to-r text-white rounded-full hover:bg-gray-800 transition duration-300 cursor-pointer"
                         >
                            Submit
                         </button>

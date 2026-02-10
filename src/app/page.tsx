@@ -1,21 +1,17 @@
-import About from '@/sections/about';
-import ActionsVerbs from '@/sections/actions-verbs';
-import ContactUs from '@/sections/contact';
-import FeaturedBy from '@/sections/featured-by';
+import About from '@/sections/home/about';
+import ActionsVerbs from '@/sections/home/actions-verbs';
+import ContactUs from '@/sections/home/contact';
+import FeaturedBy from '@/sections/home/featured-by';
 import Footer from '@/sections/footer';
-import Hero from '@/sections/hero';
-import OurMachine from '@/sections/our-machine';
-import Servings from '@/sections/servings';
-import VendingRequirements from '@/sections/what-we-need';
-import WhatWeOffer from '@/sections/what-we-offer';
-import WhyUsSection from '@/sections/why-us';
-
+import Hero from '@/sections/home/hero';
+import OurMachine from '@/sections/home/our-machine';
+import Servings from '@/sections/home/servings';
+import VendingRequirements from '@/sections/home/what-we-need';
+import WhatWeOffer from '@/sections/home/what-we-offer';
 export default function Home() {
    return (
       <div className="overflow-hidden">
          <Hero />
-
-         <WhyUsSection />
 
          <WhatWeOffer />
 

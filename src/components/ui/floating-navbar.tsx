@@ -53,7 +53,7 @@ export const FloatingNav = ({
                ease: 'easeInOut'
             }}
             className={cn(
-               'flex max-w-fit fixed top-4 mx-auto rounded-full z-100 pr-2 pl-8 py-2  items-center justify-center space-x-4',
+               'flex max-w-fit fixed top-4 mx-auto rounded-full z-100 lg:pr-2 pl-8 lg:py-2  items-center justify-center space-x-4',
                className
             )}
          >

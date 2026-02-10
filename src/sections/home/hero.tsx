@@ -2,26 +2,7 @@
 'use client';
 
 import { ContainerTextFlip } from '@/components/ui/container-text-flip';
-import { FloatingNav } from '@/components/ui/floating-navbar';
-
-const Routes = [
-   {
-      label: 'Why us',
-      href: 'offer-section'
-   },
-   {
-      label: 'about us',
-      href: 'about-section'
-   },
-   {
-      label: 'products',
-      href: 'products-section'
-   },
-   {
-      label: 'contact us',
-      href: 'contact-section'
-   }
-];
+import Navbar from '@/components/navbar';
 
 export default function SmartVendingLandingPage() {
    const handleScroll = (sectionId: string) => {
@@ -88,65 +69,18 @@ export default function SmartVendingLandingPage() {
                opacity="0.8"
             />
          </svg>
-
+         <div className=" w-full h-full">
+               <Navbar />
+            </div>
          {/* === MAIN CONTENT === */}
-         <div className="relative z-10 w-full h-full px-[3vw] md:px-[4vw] flex flex-col">
-            {/* Navigation */}
-            <nav className="flex relative items-center justify-center min-h-[10vh]">
-               {/* Logo — absolute left */}
-               <div className="absolute left-0 w-[12vw] lg:w-[6vw] top-0.5">
-                  <img
-                     src="/logos/snackit.png"
-                     alt="logo"
-                     className="w-full h-auto"
-                  />
-               </div>
-
-               {/* Navigation links — centered */}
-               <FloatingNav>
-                  <div className="bg-white/60 backdrop-blur-sm border border-[#E7000B]/10 rounded-full px-[3vw] py-[1.5vh]">
-                     <ul className="flex gap-[2vw] md:gap-[3vw]">
-                        {Routes.map((el, idx) => (
-                           <li
-                              key={idx + 1}
-                              className="text-[#2d2d2d] hover:text-[#E7000B] cursor-pointer text-[2.5vw] md:text-[1.8vw] lg:text-[1.2vw] transition-colors duration-300"
-                           >
-                              <button
-                                 onClick={() => handleScroll(el.href)}
-                              >
-                                 {el.label}
-                              </button>
-                           </li>
-                        ))}
-                     </ul>
-                  </div>
-               </FloatingNav>
-
-               {/* Phone number — absolute right */}
-               <a
-                  href="tel:+919980220000"
-                  className="absolute right-0 hidden md:flex items-center gap-[0.5vw] text-[#2d2d2d]/60 hover:text-[#E7000B] transition-colors duration-300 text-[1.5vw] lg:text-[1vw]"
-               >
-                  <svg
-                     className="w-[1.2vw] h-[1.2vw] min-w-[14px] min-h-[14px]"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     stroke="currentColor"
-                     strokeWidth="2"
-                     strokeLinecap="round"
-                     strokeLinejoin="round"
-                  >
-                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-                  </svg>
-                  +91 99802 20000
-               </a>
-            </nav>
+         <div className="relative z-10 w-full h-full px-[3vw] md:px-[4vw] xl:px-[56px] flex flex-col max-w-[1700px] mx-auto">
+            
 
             {/* Main content — split layout */}
             <div className="flex flex-col md:flex-row justify-between flex-grow min-h-[90vh]">
                {/* Left side — text content */}
-               <div className="flex flex-col justify-center w-full md:w-[45%] mb-[5vh] md:mb-0">
-                  <h1 className="text-[#1a1a1a] text-[8vw] md:text-[6vw] lg:text-[4.5vw] font-bold leading-[1.1] mb-[3vh]">
+               <div className="flex flex-col justify-center items-center md:items-start w-full md:w-[45%] mb-[5vh] md:mb-0 pt-6 md:pt-0">
+                  <h1 className="text-[#1a1a1a] text-[8vw] md:text-[6vw] lg:text-[4.5vw] xl:text-[56px] font-bold leading-[1.1] mb-[3vh] text-center md:text-left">
                      Snack{' '}
                      <ContainerTextFlip
                         words={[
@@ -160,23 +94,23 @@ export default function SmartVendingLandingPage() {
                      Work Better
                   </h1>
 
-                  <p className="text-[#1a1a1a]/40 text-[3vw] md:text-[2vw] lg:text-[1.3vw] mb-[4vh] tracking-wide">
+                  <p className="text-[#1a1a1a]/40 text-[14px] md:text-[2vw] lg:text-[1.3vw] xl:text-[18px] mb-[4vh] tracking-wide text-center md:text-left">
                      Redefining Convenience Through Smart
                      <br />
                      Vending Machines
                   </p>
 
                   {/* CTA Buttons */}
-                  <div className="flex items-center gap-[2vw]">
+                  <div className="flex items-center justify-center md:justify-start gap-[10px] md:gap-[2vw]">
                      <button
                         onClick={() => handleScroll('contact-section')}
-                        className="bg-[#E7000B] hover:bg-[#c5000a] text-white font-bold rounded-full px-[4vw] md:px-[2.5vw] py-[2vh] md:py-[1.8vh] text-[3vw] md:text-[1.5vw] lg:text-[1vw] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(231,0,11,0.3)]"
+                        className="bg-primary hover:bg-primary-dark text-white font-bold rounded-full px-[16px] md:px-[2.5vw] xl:px-[32px] py-[8px] md:py-[1.8vh] xl:py-[14px] text-[11px] md:text-[1.5vw] lg:text-[1vw] xl:text-[14px] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(231,0,11,0.3)]"
                      >
                         Get a Machine
                      </button>
                      <button
                         onClick={() => handleScroll('products-section')}
-                        className="border-2 border-[#1a1a1a]/15 hover:border-[#E7000B] text-[#1a1a1a]/60 hover:text-[#E7000B] rounded-full px-[4vw] md:px-[2.5vw] py-[2vh] md:py-[1.8vh] text-[3vw] md:text-[1.5vw] lg:text-[1vw] font-medium transition-all duration-300"
+                        className="border-2 border-[#1a1a1a]/15 hover:border-[#E7000B] text-[#1a1a1a]/60 hover:text-[#E7000B] rounded-full px-[16px] md:px-[2.5vw] xl:px-[32px] py-[8px] md:py-[1.8vh] xl:py-[14px] text-[11px] md:text-[1.5vw] lg:text-[1vw] xl:text-[14px] font-medium transition-all duration-300"
                      >
                         View Products
                      </button>
@@ -184,7 +118,7 @@ export default function SmartVendingLandingPage() {
                </div>
 
                {/* Right side — vending machine on the blob */}
-               <div className="w-full md:w-[55%] relative flex justify-center items-center z-[2] pt-20">
+               <div className="w-full md:w-[55%] relative flex justify-center items-center z-[2] pt-8 md:pt-20 2xl:pl-40">
                   {/* Main vending machine */}
                   <div className="relative z-[5] h-[40vh] md:h-[60vh] w-auto">
                      <img

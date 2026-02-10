@@ -124,25 +124,25 @@ export default function ActionsVerbs() {
    return (
       <section
          ref={actionsRef}
-         className="action-verbs-section flex justify-center min-h-screen py-[10vh]"
+         className="action-verbs-section flex justify-center min-h-screen py-8 md:py-12 lg:py-[10vh]"
       >
-         <ul className="flex flex-col gap-[4vh]">
+         <ul className="flex flex-col gap-8 md:gap-12 lg:gap-[4vh]">
             {Actions.map((action, index) => (
                <li
                   key={index + 1}
                   ref={[actionRef1, actionRef2, actionRef3][index]}
                   className="transform-gpu" // Better performance for animations
                >
-                  <div className="flex items-center justify-center space-x-[2vw]">
+                  <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-[2vw]">
                      <div
                         className={clsx(
                            action.iColor,
-                           `rounded-xl flex items-center justify-center`
+                           `rounded-xl flex items-center justify-center flex-shrink-0 2xl:w-[6rem] 2xl:h-[6rem]`
                         )}
                         style={{
-                           width: 'clamp(3rem, 5vw, 6rem)',
-                           height: 'clamp(3rem, 5vw, 6rem)',
-                           padding: 'clamp(0.5rem, 1vw, 1.5rem)'
+                           width: 'clamp(2.5rem, 4vw + 1rem, 5rem)',
+                           height: 'clamp(2.5rem, 4vw + 1rem, 5rem)',
+                           padding: 'clamp(0.5rem, 0.8vw + 0.25rem, 1.25rem)'
                         }}
                      >
                         <svg
@@ -158,12 +158,8 @@ export default function ActionsVerbs() {
                      <span
                         className={clsx(
                            action.tColor,
-                           ` font-bold tracking-tight`
+                           `font-bold tracking-tight text-[clamp(2rem,5vw+1rem,5.5rem)] leading-[1.1] 2xl:text-[6rem]`
                         )}
-                        style={{
-                           fontSize: 'clamp(2rem, 8vw, 8rem)',
-                           lineHeight: '1'
-                        }}
                      >
                         {action.text}
                      </span>
