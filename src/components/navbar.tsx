@@ -6,11 +6,10 @@ import { useEffect, useState } from 'react';
 
 const Routes = [
    { label: 'Home', href: '/' },
-   { label: 'About us', href: '/about' },
-   { label: 'Need a Vending', href: '/need-a-vending' },
+   { label: 'Vending Machines on Rent', href: '/need-a-vending' },
    { label: 'Sell on snackIt', href: '/' },
    { label: 'Promote with snackIt', href: '/' },
-   { label: 'Contact us', href: '/contact' }
+   { label: 'About us', href: '/about' },
 ];
 
 export default function Navbar() {
