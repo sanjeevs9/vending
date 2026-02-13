@@ -51,21 +51,8 @@ export default function NeedVendingContact() {
       <section
          id="vending-contact-section"
          ref={sectionRef}
-         className="relative w-full py-[10vh] overflow-hidden bg-[#f5f5f5]"
+         className="relative w-full py-[10vh] overflow-hidden"
       >
-         {/* Gold organic shape */}
-         <svg
-            className="absolute top-[-10%] left-[-5%] w-[30%] h-[80%] pointer-events-none z-0"
-            viewBox="0 0 400 500"
-            xmlns="http://www.w3.org/2000/svg"
-         >
-            <path
-               d="M300,40 C380,100 370,250 320,360 C270,470 160,500 80,440 C0,380 -20,240 30,140 C80,40 200,-20 300,40 Z"
-               fill="#FDB12B"
-               opacity="0.08"
-            />
-         </svg>
-
          <div
             ref={contentRef}
             className="relative z-10 max-w-[1400px] mx-auto px-[4vw] md:px-[6vw] xl:px-[56px]"
@@ -143,7 +130,7 @@ export default function NeedVendingContact() {
                               placeholder="Your name *"
                               value={formData.name}
                               onChange={handleChange}
-                              className="w-full bg-white border border-text-secondary/15 rounded-lg p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-text-secondary/35 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                            />
                            <input
                               required
@@ -152,7 +139,7 @@ export default function NeedVendingContact() {
                               placeholder="Work email *"
                               value={formData.email}
                               onChange={handleChange}
-                              className="w-full bg-white border border-text-secondary/15 rounded-lg p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-text-secondary/35 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                            />
                         </div>
 
@@ -164,7 +151,7 @@ export default function NeedVendingContact() {
                               placeholder="Phone number *"
                               value={formData.mobile}
                               onChange={handleChange}
-                              className="w-full bg-white border border-text-secondary/15 rounded-lg p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-text-secondary/35 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                            />
                            <input
                               type="text"
@@ -172,7 +159,7 @@ export default function NeedVendingContact() {
                               placeholder="Company name"
                               value={formData.company}
                               onChange={handleChange}
-                              className="w-full bg-white border border-text-secondary/15 rounded-lg p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-text-secondary/35 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                            />
                         </div>
 
@@ -183,13 +170,13 @@ export default function NeedVendingContact() {
                               placeholder="City / Location"
                               value={formData.location}
                               onChange={handleChange}
-                              className="w-full bg-white border border-text-secondary/15 rounded-lg p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-text-secondary/35 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                            />
                            <select
                               name="employees"
                               value={formData.employees}
                               onChange={handleChange}
-                              className="w-full bg-white border border-text-secondary/15 rounded-lg p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                              className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] text-black/70 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                            >
                               <option value="">Team size</option>
                               <option value="1-50">1–50 employees</option>
@@ -205,7 +192,7 @@ export default function NeedVendingContact() {
                            value={formData.message}
                            onChange={handleChange}
                            rows={4}
-                           className="w-full bg-white border border-text-secondary/15 rounded-lg p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-text-secondary/35 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all"
+                           className="w-full bg-transparent border border-black rounded-md p-[10px] md:p-[1.5vh] text-[14px] md:text-[1.6vw] lg:text-[1.1vw] xl:text-[15px] placeholder:text-black/70 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                         ></textarea>
 
                         <div className="flex justify-end gap-[12px] md:gap-[2vw]">

@@ -4,7 +4,8 @@ import NeedVendingFaq from '@/sections/need-a-vending/need-vending-faq';
 import NeedVendingFeatures from '@/sections/need-a-vending/need-vending-features';
 import NeedVendingHero from '@/sections/need-a-vending/need-vending-hero';
 import NeedVendingTrust from '@/sections/need-a-vending/need-vending-trust';
-import NeedVendingWhy from '@/sections/need-a-vending/need-vending-why';
+import GoogleReviews from '@/components/google-reviews';
+import NeedVendingSmartCard from '@/sections/need-a-vending/need-vending-smart-card';
 
 export const metadata = {
    title: 'Need a Vending Machine? – Snackit',
@@ -18,7 +19,8 @@ export default function NeedAVendingPage() {
          <NeedVendingHero />
          <NeedVendingFeatures />
          <NeedVendingTrust />
-         <NeedVendingWhy />
+         <NeedVendingSmartCard />
+         <GoogleReviews />
          <NeedVendingFaq />
          <NeedVendingContact />
          <Footer />

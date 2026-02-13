@@ -118,14 +118,16 @@ export default function SmartVendingLandingPage() {
                </div>
 
                {/* Right side — vending machine on the blob */}
-               <div className="w-full md:w-[55%] relative flex justify-center items-center z-[2] pt-8 md:pt-20 2xl:pl-40">
+               <div className="w-full md:w-[55%] relative z-[2] overflow-hidden">
                   {/* Main vending machine */}
-                  <div className="relative z-[5] h-[40vh] md:h-[60vh] w-auto">
-                     <img
-                        src="/hero/vending-machine.png"
-                        alt="Smart vending machine with snacks"
-                        className="h-full w-auto object-contain drop-shadow-[0_15px_50px_rgba(0,0,0,0.15)]"
-                     />
+                  <div className="absolute inset-0 flex justify-center items-center z-[5] pt-10 pl-10">
+                     <div className="relative h-[280px] md:h-[600px] w-auto">
+                        <img
+                           src="/hero/tilted.png"
+                           alt="Smart vending machine with snacks"
+                           className="h-full w-auto object-contain drop-shadow-[0_15px_50px_rgba(0,0,0,0.15)]"
+                        />
+                     </div>
                   </div>
                </div>
             </div>

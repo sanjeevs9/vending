@@ -84,11 +84,11 @@ export default function Navbar() {
    return (
       <>
          {/* Static navbar — scrolls with page */}
-         <nav className="w-full z-50">{navContent}</nav>
+         <nav className="w-full z-[100]">{navContent}</nav>
 
          {/* Fixed navbar — appears on scroll up with bg */}
          <nav
-            className={`fixed top-0 left-0 w-full z-50 bg-white/60 backdrop-blur-sm transition-transform duration-300 ${
+            className={`fixed top-0 left-0 w-full z-[100] bg-white/80 backdrop-blur-xl transition-transform duration-300 ${
                showFixed ? 'translate-y-0' : '-translate-y-full'
             }`}
          >

@@ -37,7 +37,7 @@ const useCountUp = (end: number, isVisible: boolean, duration = 2000) => {
 
 export default function NeedVendingTrust() {
    const sectionRef = useRef<HTMLDivElement>(null);
-   const contentRef = useRef<HTMLDivElement>(null);
+   const statsRef = useRef<HTMLDivElement>(null);
    const [isVisible, setIsVisible] = useState(false);
 
    useEffect(() => {
@@ -59,87 +59,84 @@ export default function NeedVendingTrust() {
    }, []);
 
    useGSAP(() => {
-      if (!contentRef.current) return;
-      gsap.from(contentRef.current.children, {
-         y: 50,
+      if (!statsRef.current) return;
+      gsap.from(statsRef.current.children, {
+         y: 30,
          opacity: 0,
-         duration: 0.8,
-         stagger: 0.15,
+         duration: 0.6,
+         stagger: 0.12,
          ease: 'power2.out',
          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 75%'
+            trigger: statsRef.current,
+            start: 'top 80%'
          }
       });
    }, []);
 
-   const clients = useCountUp(60, isVisible);
-   const transactions = useCountUp(4000, isVisible);
-   const years = useCountUp(15, isVisible);
-   const cities = useCountUp(5, isVisible);
+   const years = useCountUp(10, isVisible);
+   const clients = useCountUp(600, isVisible);
+   const cities = useCountUp(15, isVisible);
 
    const stats = [
-      { value: clients, suffix: '+', label: 'Corporate Clients' },
-      { value: transactions, suffix: '+', label: 'Daily Transactions' },
-      { value: years, suffix: '+', label: 'Years of Experience' },
+      { value: years, suffix: '+', label: 'Years in Business' },
+      { value: clients, suffix: '+', label: 'Happy Clients' },
       { value: cities, suffix: '+', label: 'Cities Served' }
    ];
 
    return (
       <section
          ref={sectionRef}
-         className="relative w-full py-[10vh] overflow-hidden bg-[#f5f5f5]"
+         className="relative w-full py-[6vh] md:py-[8vh] overflow-hidden"
       >
-         {/* Gold organic shape */}
-         <svg
-            className="absolute top-[-15%] right-[-8%] w-[40%] h-[130%] pointer-events-none z-0"
-            viewBox="0 0 400 500"
-            xmlns="http://www.w3.org/2000/svg"
-         >
-            <path
-               d="M100,460 C20,400 -10,260 30,150 C70,40 180,0 280,50 C380,100 400,240 360,350 C320,460 200,520 100,460 Z"
-               fill="#FDB12B"
-               opacity="0.08"
-            />
-         </svg>
+         {/* Grey arc background */}
+         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+            <svg
+               className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[160%] md:w-[130%]"
+               viewBox="0 0 1600 500"
+               xmlns="http://www.w3.org/2000/svg"
+               preserveAspectRatio="none"
+               style={{ height: '95%' }}
+            >
+               <ellipse cx="800" cy="500" rx="850" ry="420" fill="#f4f4f4" />
+            </svg>
+         </div>
 
-         <div
-            ref={contentRef}
-            className="relative z-10 max-w-[1400px] mx-auto px-[4vw] md:px-[6vw] xl:px-[56px]"
-         >
-            <div className="text-center mb-[6vh]">
-               <span className="text-[#FDB12B] text-[12px] md:text-[1.5vw] lg:text-[1vw] xl:text-[14px] font-medium tracking-widest uppercase">
-                  Social Proof
-               </span>
-               <h2 className="text-[26px] md:text-[5vw] lg:text-[3.5vw] xl:text-[44px] font-bold text-[#1a1a1a] mt-[1vh] mb-[2vh]">
-                  Chosen by <span className="text-[#E7000B]">Leading Institutions</span>
+         <div className="relative z-10 max-w-[1100px] mx-auto px-[4vw] md:px-[5vw] xl:px-[48px]">
+            {/* Heading */}
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-[2vh] md:gap-[4vw] mb-[5vh] md:mb-[6vh]">
+               <h2 className="text-[24px] md:text-[3.5vw] lg:text-[2.8vw] xl:text-[36px] font-bold text-[#1a1a1a] leading-tight md:max-w-[50%]">
+                  Trusted by leading
+                  <br />
+                  <span className="text-primary">institutions across India</span>
                </h2>
-               <p className="text-[14px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[16px] text-[#1a1a1a]/50 max-w-[70vw] xl:max-w-[600px] mx-auto">
-                  Trusted across workplaces, campuses, and care facilities. A
-                  dependable partner for long-term vending solutions that just work.
+               <p className="text-[13px] md:text-[1.5vw] lg:text-[1.1vw] xl:text-[15px] text-[#1a1a1a]/50 md:max-w-[40%] md:text-right leading-relaxed">
+                  From corporate offices to university campuses — we deliver
+                  dependable vending solutions that just work, every single day.
                </p>
             </div>
 
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-[16px] md:gap-[3vw] mb-[6vh]">
+            <div
+               ref={statsRef}
+               className="grid grid-cols-3 gap-[1px] bg-[#1a1a1a]/8 rounded-2xl overflow-hidden"
+            >
                {stats.map((stat, idx) => (
                   <div
                      key={idx + 1}
-                     className="bg-white border border-[#FDB12B]/15 rounded-2xl p-[16px] md:p-[3vh] text-center"
+                     className="bg-white py-[4vh] md:py-[5vh] px-[3vw] text-center"
                   >
-                     <span className="text-[#E7000B] text-[28px] md:text-[4vw] lg:text-[3vw] xl:text-[40px] font-bold block">
+                     <span className="text-[28px] md:text-[3.5vw] lg:text-[2.5vw] xl:text-[36px] font-bold text-[#1a1a1a] block leading-none">
                         {stat.value.toLocaleString()}
-                        {stat.suffix}
+                        <span className="text-primary">{stat.suffix}</span>
                      </span>
-                     <span className="text-[#1a1a1a]/50 text-[11px] md:text-[1.3vw] lg:text-[1vw] xl:text-[14px] mt-[1vh] block">
+                     <span className="text-[11px] md:text-[1.2vw] lg:text-[0.9vw] xl:text-[13px] text-[#1a1a1a]/40 mt-[8px] block uppercase tracking-wider font-medium">
                         {stat.label}
                      </span>
                   </div>
                ))}
             </div>
 
-            {/* Trust badges */}
-            <div className="flex flex-wrap justify-center gap-[12px] md:gap-[2vw]">
+            {/* Industry badges */}
+            <div className="flex flex-wrap justify-center gap-[10px] md:gap-[14px] mt-[5vh] md:mt-[6vh]">
                {[
                   'Corporate Offices',
                   'Co-working Spaces',
@@ -150,7 +147,7 @@ export default function NeedVendingTrust() {
                ].map((place, idx) => (
                   <span
                      key={idx + 1}
-                     className="bg-white border border-[#1a1a1a]/10 rounded-full px-[14px] md:px-[2vw] xl:px-[20px] py-[6px] md:py-[1vh] xl:py-[8px] text-[11px] md:text-[1.3vw] lg:text-[0.9vw] xl:text-[13px] text-[#1a1a1a]/60"
+                     className="bg-[#fafafa] rounded-full px-[16px] md:px-[20px] xl:px-[24px] py-[8px] md:py-[10px] xl:py-[10px] text-[11px] md:text-[13px] xl:text-[14px] text-[#1a1a1a]/60 font-medium"
                   >
                      {place}
                   </span>
