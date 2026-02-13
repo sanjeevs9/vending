@@ -4,18 +4,16 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 
-// Register the ScrollTrigger plugin
 if (typeof window !== 'undefined') {
    gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function WhyUsSection() {
+export default function WhatWeBringSection() {
    const sectionRef = useRef<HTMLElement | null>(null);
    const headingRef = useRef<HTMLDivElement | null>(null);
    const leftItemsRef = useRef<(HTMLDivElement | null)[]>([]);
    const rightItemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-   // Data for the section
    const leftItems = [
       {
          title: 'Zero capital investment with end-to-end management, including logistics and machine maintenance.'
@@ -47,16 +45,12 @@ export default function WhyUsSection() {
    ];
 
    useEffect(() => {
-      // Skip GSAP initialization during SSR
       if (typeof window === 'undefined') return;
 
-      // Create a context to properly clean up GSAP animations
       const ctx = gsap.context(() => {
-         // Initial setup - hide all items
          gsap.set(leftItemsRef.current, { autoAlpha: 0, x: -50 });
          gsap.set(rightItemsRef.current, { autoAlpha: 0, x: 50 });
 
-         // Animate heading
          if (headingRef.current) {
             gsap.fromTo(
                headingRef.current.children,
@@ -71,7 +65,6 @@ export default function WhyUsSection() {
             );
          }
 
-         // Create scroll animations for each left item
          leftItemsRef.current.forEach((item) => {
             gsap.fromTo(
                item,
@@ -83,7 +76,6 @@ export default function WhyUsSection() {
                      end: 'bottom 20%',
                      toggleActions: 'play reverse restart reverse',
                      scrub: 0.5
-                     // markers: true
                   },
                   autoAlpha: 1,
                   x: 0,
@@ -93,7 +85,6 @@ export default function WhyUsSection() {
             );
          });
 
-         // Create scroll animations for each right item
          rightItemsRef.current.forEach((item) => {
             gsap.fromTo(
                item,
@@ -105,7 +96,6 @@ export default function WhyUsSection() {
                      end: 'bottom 20%',
                      toggleActions: 'play reverse restart reverse',
                      scrub: 0.5
-                     // markers: true
                   },
                   autoAlpha: 1,
                   x: 0,
@@ -116,52 +106,59 @@ export default function WhyUsSection() {
          });
       }, sectionRef);
 
-      // Clean up function
       return () => ctx.revert();
    }, []);
 
    return (
-      <section ref={sectionRef} className="py-16 px-4 overflow-hidden bg-white">
+      <section ref={sectionRef} className="py-[6vh] md:py-[8vh] overflow-hidden bg-white">
+         {/* Heading row */}
          <div
             ref={headingRef}
-            className="max-w-6xl mx-auto mb-16 flex justify-between"
+            className="max-w-[1100px] mx-auto px-[4vw] md:px-[5vw] xl:px-[48px] mb-[5vh] md:mb-[6vh] flex flex-col md:flex-row md:justify-between gap-[2vh] md:gap-0"
          >
-            <h2 className="text-3xl font-medium text-green-500">
-               What do we have for you?
+            <h2 className="text-[18px] md:text-[2.2vw] lg:text-[1.6vw] xl:text-[20px] font-bold text-[#1a1a1a]">
+               What we have for you
             </h2>
-            <h2 className="text-3xl font-medium text-green-500">Why us</h2>
-            <h2 className="text-3xl font-medium text-green-500">
+            <h2 className="hidden md:block text-[18px] md:text-[2.2vw] lg:text-[1.6vw] xl:text-[20px] font-bold text-primary">
+               What we Bring
+            </h2>
+            <h2 className="text-[18px] md:text-[2.2vw] lg:text-[1.6vw] xl:text-[20px] font-bold text-[#1a1a1a]">
                What we need in return
             </h2>
          </div>
 
-         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+         {/* Two columns */}
+         <div className="max-w-[1100px] mx-auto px-[4vw] md:px-[5vw] xl:px-[48px] grid grid-cols-1 md:grid-cols-2 gap-[3vh] md:gap-[5vw]">
             {/* Left Column */}
-            <div className="space-y-12">
+            <div className="space-y-[2vh] md:space-y-[3vh]">
                {leftItems.map((item, index) => (
                   <div
                      key={`left-${index + 1}`}
                      ref={(el) => {
                         leftItemsRef.current[index] = el;
                      }}
-                     className="p-4"
+                     className="border-l-[2px] border-[#1a1a1a]/10 pl-[16px] md:pl-[20px] py-[4px]"
                   >
-                     <p className="text-lg text-green-500">{item.title}</p>
+                     <p className="text-[#1a1a1a]/60 text-[13px] md:text-[1.5vw] lg:text-[1.1vw] xl:text-[15px] leading-relaxed">
+                        {item.title}
+                     </p>
                   </div>
                ))}
             </div>
 
             {/* Right Column */}
-            <div className="space-y-12">
+            <div className="space-y-[2vh] md:space-y-[3vh]">
                {rightItems.map((item, index) => (
                   <div
                      key={`right-${index + 1}`}
                      ref={(el) => {
                         rightItemsRef.current[index] = el;
                      }}
-                     className="p-4"
+                     className="border-l-[2px] border-[#1a1a1a]/10 pl-[16px] md:pl-[20px] py-[4px]"
                   >
-                     <p className="text-lg text-green-500">{item.title}</p>
+                     <p className="text-[#1a1a1a]/60 text-[13px] md:text-[1.5vw] lg:text-[1.1vw] xl:text-[15px] leading-relaxed">
+                        {item.title}
+                     </p>
                   </div>
                ))}
             </div>

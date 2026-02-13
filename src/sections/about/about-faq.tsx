@@ -41,7 +41,7 @@ export default function AboutFaq() {
             <>
                Frequently Asked
                <br />
-               <span className="text-[#E7000B]">Questions</span>
+               <span className="text-primary">Questions</span>
             </>
          }
          faqs={faqs}
