@@ -1,0 +1,240 @@
+/* eslint-disable @next/next/no-img-element */
+'use client';
+
+import Navbar from '@/components/navbar';
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap';
+import { useRef } from 'react';
+import brand1Img from "../../../public/vectors/sell/products/1.png";
+import brand2Img from "../../../public/vectors/sell/products/2.png";
+import brand3Img from "../../../public/vectors/sell/products/3.png";
+import brand4Img from "../../../public/vectors/sell/products/4.png";
+import brand5Img from "../../../public/vectors/sell/products/5.png";
+import brand6Img from "../../../public/vectors/sell/products/6.png";
+import brand7Img from "../../../public/vectors/sell/products/7.png";
+import Image from 'next/image';
+
+
+gsap.registerPlugin(useGSAP);
+
+const floatingItems = [
+   { label: brand1Img, top: '8%',  right: '16%', left: undefined, bottom: undefined },
+   { label: brand2Img, top: '30%', right: '2%',  left: undefined, bottom: undefined },
+   { label: brand3Img, top: undefined, right: '12%', left: undefined, bottom: '18%' },
+   { label: brand4Img, top: '12%', right: undefined, left: '4%',  bottom: undefined },
+   { label: brand5Img, top: '48%', right: undefined, left: '0%',  bottom: undefined },
+   { label: brand6Img, top: undefined, right: undefined, left: '8%', bottom: '12%' },
+   { label: brand7Img, top: undefined, right: '0%',  left: undefined, bottom: '42%' }
+];
+
+export default function SellHero() {
+   const containerRef = useRef<HTMLDivElement>(null);
+   const tagRef = useRef<HTMLSpanElement>(null);
+   const headingRef = useRef<HTMLHeadingElement>(null);
+   const subtitleRef = useRef<HTMLParagraphElement>(null);
+   const ctaRef = useRef<HTMLDivElement>(null);
+   const machineRef = useRef<HTMLDivElement>(null);
+   const statsRef = useRef<HTMLDivElement>(null);
+   const floatersRef = useRef<(HTMLDivElement | null)[]>([]);
+
+   useGSAP(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      tl.from(tagRef.current, { y: 20, opacity: 0, duration: 0.6 })
+         .from(headingRef.current, { y: 60, opacity: 0, duration: 0.9 }, '-=0.3')
+         .from(subtitleRef.current, { y: 30, opacity: 0, duration: 0.7 }, '-=0.5')
+         .from(ctaRef.current, { y: 20, opacity: 0, duration: 0.5 }, '-=0.3')
+         .from(
+            machineRef.current,
+            { y: 80, opacity: 0, duration: 1, ease: 'power2.out' },
+            '-=0.7'
+         )
+         .from(statsRef.current, { y: 20, opacity: 0, duration: 0.5 }, '-=0.3');
+
+      // Floating items entrance + continuous bobbing
+      floatersRef.current.forEach((el, i) => {
+         if (!el) return;
+         gsap.from(el, {
+            scale: 0,
+            opacity: 0,
+            duration: 0.5,
+            delay: 1.2 + i * 0.15,
+            ease: 'back.out(1.5)'
+         });
+         gsap.to(el, {
+            y: '+=10',
+            duration: 2.2 + i * 0.3,
+            ease: 'sine.inOut',
+            yoyo: true,
+            repeat: -1,
+            delay: 1.8 + i * 0.4
+         });
+      });
+   }, []);
+
+   const handleScroll = (sectionId: string) => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+   };
+
+   return (
+      <section
+         ref={containerRef}
+         className="relative w-full min-h-screen overflow-hidden bg-[#f5f5f5]"
+      >
+         {/* Subtle bg accent */}
+         <div
+            className="absolute top-[-20%] right-[-10%] w-[60%] h-[120%] pointer-events-none z-0 rounded-full"
+            style={{
+               background:
+                  'radial-gradient(ellipse at center, rgba(231,0,11,0.03) 0%, transparent 70%)'
+            }}
+         />
+
+         <div className="relative z-10 w-full h-full flex flex-col max-w-[1700px] mx-auto">
+            <Navbar />
+
+            <div className="flex flex-col md:flex-row justify-between flex-grow min-h-[90vh] px-[3vw] md:px-[4vw] xl:px-[56px]">
+               {/* Left — text content */}
+               <div className="flex flex-col justify-center items-center md:items-start w-full md:w-[45%] mb-[5vh] md:mb-0 pt-6 md:pt-0">
+                  <span
+                     ref={tagRef}
+                     className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 text-primary text-[10px] md:text-[1.2vw] lg:text-[0.85vw] xl:text-[12px] font-semibold tracking-[0.15em] uppercase rounded-full px-[14px] py-[6px] md:px-[1.5vw] md:py-[0.8vh] xl:px-[18px] xl:py-[8px] mb-[3vh]"
+                  >
+                     <span className="w-[6px] h-[6px] rounded-full bg-primary animate-pulse" />
+                     For Brands
+                  </span>
+
+                  <h1
+                     ref={headingRef}
+                     className="text-[#1a1a1a] text-[9vw] md:text-[5.5vw] lg:text-[4.2vw] xl:text-[54px] font-bold leading-[1.05] mb-[2.5vh] text-center md:text-left tracking-[-0.02em]"
+                  >
+                     Grow with
+                     <br />
+                     <span className="text-primary">Snackit</span>
+                  </h1>
+
+                  <p
+                     ref={subtitleRef}
+                     className="text-[#1a1a1a]/45 text-[13px] md:text-[1.8vw] lg:text-[1.2vw] xl:text-[17px] mb-[4vh] tracking-wide leading-[1.6] text-center md:text-left max-w-[440px]"
+                  >
+                     Put your products inside India&apos;s smartest
+                     <br className="hidden md:block" />
+                     workplaces. Reach consumers exactly where
+                     <br className="hidden md:block" />
+                     buying decisions happen.
+                  </p>
+
+                  {/* CTA Buttons */}
+                  <div
+                     ref={ctaRef}
+                     className="flex items-center justify-center md:justify-start gap-[10px] md:gap-[1.5vw]"
+                  >
+                     <button
+                        onClick={() => handleScroll('sell-contact-section')}
+                        className="group bg-primary hover:bg-primary-dark text-white font-bold rounded-full px-[18px] md:px-[2.5vw] xl:px-[32px] py-[10px] md:py-[1.8vh] xl:py-[14px] text-[11px] md:text-[1.5vw] lg:text-[1vw] xl:text-[14px] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(231,0,11,0.25)] flex items-center gap-2"
+                     >
+                        List Your Products
+                        <svg
+                           className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke="currentColor"
+                           strokeWidth={2.5}
+                        >
+                           <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M13 7l5 5m0 0l-5 5m5-5H6"
+                           />
+                        </svg>
+                     </button>
+                     <button
+                        onClick={() => handleScroll('sell-features-section')}
+                        className="border-2 border-[#1a1a1a]/12 hover:border-primary/40 text-black/55 hover:text-primary rounded-full px-[18px] md:px-[2.5vw] xl:px-[32px] py-[10px] md:py-[1.8vh] xl:py-[14px] text-[11px] md:text-[1.5vw] lg:text-[1vw] xl:text-[14px] font-medium transition-all duration-300"
+                     >
+                        How It Works
+                     </button>
+                  </div>
+
+                  {/* Trust stats */}
+                  <div
+                     ref={statsRef}
+                     className="flex items-center gap-[24px] md:gap-[3vw] xl:gap-[40px] mt-[5vh] pt-[3vh] border-t border-[#1a1a1a]/6"
+                  >
+                     <div className="text-center md:text-left">
+                        <span className="text-black text-[18px] md:text-[2.5vw] lg:text-[1.6vw] xl:text-[22px] font-bold block leading-none">
+                           100+
+                        </span>
+                        <span className="text-[#1a1a1a]/35 text-[9px] md:text-[1.1vw] lg:text-[0.75vw] xl:text-[11px] tracking-wide uppercase mt-1 block">
+                           Brands
+                        </span>
+                     </div>
+                     <div className="w-[1px] h-[32px] bg-black/8" />
+                     <div className="text-center md:text-left">
+                        <span className="text-black text-[18px] md:text-[2.5vw] lg:text-[1.6vw] xl:text-[22px] font-bold block leading-none">
+                           15+
+                        </span>
+                        <span className="text-black/35 text-[9px] md:text-[1.1vw] lg:text-[0.75vw] xl:text-[11px] tracking-wide uppercase mt-1 block">
+                           Cities
+                        </span>
+                     </div>
+                     <div className="w-[1px] h-[32px] bg-black/8" />
+                     <div className="text-center md:text-left">
+                        <span className="text-black text-[18px] md:text-[2.5vw] lg:text-[1.6vw] xl:text-[22px] font-bold block leading-none">
+                           600+
+                        </span>
+                        <span className="text-black/35 text-[9px] md:text-[1.1vw] lg:text-[0.75vw] xl:text-[11px] tracking-wide uppercase mt-1 block">
+                           Locations
+                        </span>
+                     </div>
+                  </div>
+               </div>
+
+               {/* Right — vending machine + floating tags */}
+               <div className="w-full md:w-[55%] relative z-[2]">
+                  <div
+                     ref={machineRef}
+                     className="absolute inset-0 flex justify-center items-center z-[5] pl-[5%] pt-[3%]"
+                  >
+                     <div className="relative h-[280px] md:h-[500px] w-auto">
+                        <img
+                           src="/hero/tilted.png"
+                           alt="Smart vending machine for brands"
+                           className="h-full w-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+                        />
+                     </div>
+                  </div>
+
+                  {/* Floating product tags */}
+                  {floatingItems.map((item, idx) => (
+                     <div
+                        key={idx}
+                        ref={(el) => {
+                           floatersRef.current[idx] = el;
+                        }}
+                        className="absolute z-[10] hidden md:block"
+                        style={{
+                           top: item.top,
+                           right: item.right,
+                           bottom: item.bottom,
+                           left: item.left
+                        }}
+                     >
+                        <Image
+                           src={item.label}
+                           alt=""
+                           className="w-[50px] h-[50px] lg:w-[85px] lg:h-[85px] object-contain"
+                           width={50}
+                           height={50}
+                        />
+                     </div>
+                  ))}
+               </div>
+            </div>
+         </div>
+      </section>
+   );
+}

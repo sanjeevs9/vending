@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const Routes = [
    { label: 'Home', href: '/' },
    { label: 'Vending Machines on Rent', href: '/need-a-vending' },
-   { label: 'Sell on snackIt', href: '/' },
+   { label: 'Sell on snackIt', href: '/sell' },
    { label: 'Promote with snackIt', href: '/' },
    { label: 'About us', href: '/about' },
 ];
