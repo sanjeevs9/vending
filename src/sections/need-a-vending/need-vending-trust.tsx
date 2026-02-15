@@ -117,7 +117,7 @@ export default function NeedVendingTrust() {
 
             <div
                ref={statsRef}
-               className="grid grid-cols-3 gap-[1px] bg-[#1a1a1a]/8 rounded-2xl overflow-hidden"
+               className="grid grid-cols-1 sm:grid-cols-3 gap-[1px] bg-[#1a1a1a]/8 rounded-2xl overflow-hidden"
             >
                {stats.map((stat, idx) => (
                   <div

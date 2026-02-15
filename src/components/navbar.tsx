@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 const Routes = [
    { label: 'Home', href: '/' },
@@ -15,6 +15,7 @@ const Routes = [
 export default function Navbar() {
    const [showFixed, setShowFixed] = useState(false);
    const [lastScrollY, setLastScrollY] = useState(0);
+   const [mobileOpen, setMobileOpen] = useState(false);
 
    useEffect(() => {
       const handleScroll = () => {
@@ -33,7 +34,19 @@ export default function Navbar() {
       return () => window.removeEventListener('scroll', handleScroll);
    }, [lastScrollY]);
 
-   const navContent = (
+   // Lock body scroll when mobile menu is open
+   useEffect(() => {
+      if (mobileOpen) {
+         document.body.style.overflow = 'hidden';
+      } else {
+         document.body.style.overflow = '';
+      }
+      return () => { document.body.style.overflow = ''; };
+   }, [mobileOpen]);
+
+   const closeMobile = useCallback(() => setMobileOpen(false), []);
+
+   const navBar = (
       <div className="max-w-[1700px] mx-auto px-[3vw] md:px-[4vw] xl:px-[56px] flex items-center justify-between h-[60px] md:h-[70px] xl:h-[80px]">
          {/* Logo */}
          <Link
@@ -47,7 +60,7 @@ export default function Navbar() {
             />
          </Link>
 
-         {/* Navigation links */}
+         {/* Desktop navigation links */}
          <ul className="hidden md:flex items-center gap-[2.5vw] xl:gap-[32px]">
             {Routes.map((el, idx) => (
                <li
@@ -59,7 +72,7 @@ export default function Navbar() {
             ))}
          </ul>
 
-         {/* Phone number */}
+         {/* Desktop phone number */}
          <a
             href="tel:+919980220000"
             className="hidden md:flex items-center gap-[6px] bg-[#E7000B] text-white rounded-full px-[1.5vw] xl:px-[20px] py-[6px] md:py-[8px] text-[1.3vw] lg:text-[0.9vw] xl:text-[13px] font-medium hover:bg-[#c5000a] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(231,0,11,0.3)]"
@@ -77,13 +90,24 @@ export default function Navbar() {
             </svg>
             +91 99802 20000
          </a>
+
+         {/* Mobile hamburger button */}
+         <button
+            onClick={() => setMobileOpen((prev) => !prev)}
+            className="md:hidden flex flex-col justify-center items-center w-[36px] h-[36px] gap-[5px]"
+            aria-label="Toggle menu"
+         >
+            <span className={`block w-[20px] h-[2px] bg-[#1a1a1a] rounded-full transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+            <span className={`block w-[20px] h-[2px] bg-[#1a1a1a] rounded-full transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-[20px] h-[2px] bg-[#1a1a1a] rounded-full transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+         </button>
       </div>
    );
 
    return (
       <>
          {/* Static navbar — scrolls with page */}
-         <nav className="w-full z-[100]">{navContent}</nav>
+         <nav className="w-full z-[100]">{navBar}</nav>
 
          {/* Fixed navbar — appears on scroll up with bg */}
          <nav
@@ -91,8 +115,78 @@ export default function Navbar() {
                showFixed ? 'translate-y-0' : '-translate-y-full'
             }`}
          >
-            {navContent}
+            {navBar}
          </nav>
+
+         {/* Mobile menu overlay */}
+         <div
+            className={`fixed inset-0 z-[200] md:hidden transition-opacity duration-300 ${
+               mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            }`}
+         >
+            {/* Backdrop */}
+            <div
+               className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+               onClick={closeMobile}
+            />
+
+            {/* Drawer */}
+            <div
+               className={`absolute top-0 right-0 w-[75%] max-w-[300px] h-full bg-white shadow-[-4px_0_24px_rgba(0,0,0,0.1)] transition-transform duration-300 ${
+                  mobileOpen ? 'translate-x-0' : 'translate-x-full'
+               }`}
+            >
+               {/* Close button */}
+               <div className="flex justify-end p-[16px]">
+                  <button
+                     onClick={closeMobile}
+                     className="w-[36px] h-[36px] flex items-center justify-center"
+                     aria-label="Close menu"
+                  >
+                     <svg className="w-[20px] h-[20px]" fill="none" viewBox="0 0 24 24" stroke="#1a1a1a" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                     </svg>
+                  </button>
+               </div>
+
+               {/* Mobile nav links */}
+               <ul className="flex flex-col px-[24px] gap-[4px]">
+                  {Routes.map((el, idx) => (
+                     <li key={idx + 1}>
+                        <Link
+                           href={el.href}
+                           onClick={closeMobile}
+                           className="block py-[12px] text-[15px] font-medium text-[#1a1a1a]/70 hover:text-[#E7000B] transition-colors duration-200 border-b border-[#1a1a1a]/6"
+                        >
+                           {el.label}
+                        </Link>
+                     </li>
+                  ))}
+               </ul>
+
+               {/* Mobile phone CTA */}
+               <div className="px-[24px] mt-[24px]">
+                  <a
+                     href="tel:+919980220000"
+                     onClick={closeMobile}
+                     className="flex items-center justify-center gap-[8px] bg-[#E7000B] text-white rounded-full px-[20px] py-[12px] text-[14px] font-medium hover:bg-[#c5000a] transition-colors duration-200"
+                  >
+                     <svg
+                        className="w-[16px] h-[16px]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                     >
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                     </svg>
+                     +91 99802 20000
+                  </a>
+               </div>
+            </div>
+         </div>
       </>
    );
 }

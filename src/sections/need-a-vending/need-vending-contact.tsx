@@ -51,7 +51,7 @@ export default function NeedVendingContact() {
       <section
          id="vending-contact-section"
          ref={sectionRef}
-         className="relative w-full py-[10vh] overflow-hidden"
+         className="relative w-full py-[6vh] md:py-[10vh] overflow-hidden"
       >
          <div
             ref={contentRef}

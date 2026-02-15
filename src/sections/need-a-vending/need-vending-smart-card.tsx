@@ -67,11 +67,11 @@ export default function NeedVendingSmartCard() {
             {/* Split layout — image absolute left, steps right */}
             <div className="relative">
                {/* Left — image (stacked on mobile, absolute on desktop) */}
-               <div className="w-full flex justify-center mb-[4vh] lg:mb-0 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:left-[-9vw]  lg:w-[70%]">
+               <div className="w-full flex justify-center mb-[4vh] lg:mb-0 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:left-[-9vw] lg:w-[70%]">
                   <Image
                      src={RFIDCard}
                      alt="Snackit Smart RFID Card with vending machine"
-                     className="w-[85%] md:w-[70%] lg:w-full h-auto object-contain"
+                     className="w-[70%] max-w-[320px] md:w-[60%] md:max-w-none lg:w-full h-auto object-contain"
                   />
                </div>
 

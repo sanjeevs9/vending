@@ -96,9 +96,9 @@ export default function SellHero() {
          <div className="relative z-10 w-full h-full flex flex-col max-w-[1700px] mx-auto">
             <Navbar />
 
-            <div className="flex flex-col md:flex-row justify-between flex-grow min-h-[90vh] px-[3vw] md:px-[4vw] xl:px-[56px]">
+            <div className="flex flex-col md:flex-row justify-between flex-grow min-h-0 md:min-h-[90vh] px-[3vw] md:px-[4vw] xl:px-[56px]">
                {/* Left — text content */}
-               <div className="flex flex-col justify-center items-center md:items-start w-full md:w-[45%] mb-[5vh] md:mb-0 pt-6 md:pt-0">
+               <div className="flex flex-col justify-center items-center md:items-start w-full md:w-[45%] mb-[3vh] md:mb-0 pt-6 md:pt-0">
                   <span
                      ref={tagRef}
                      className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 text-primary text-[10px] md:text-[1.2vw] lg:text-[0.85vw] xl:text-[12px] font-semibold tracking-[0.15em] uppercase rounded-full px-[14px] py-[6px] md:px-[1.5vw] md:py-[0.8vh] xl:px-[18px] xl:py-[8px] mb-[3vh]"
@@ -194,12 +194,12 @@ export default function SellHero() {
                </div>
 
                {/* Right — vending machine + floating tags */}
-               <div className="w-full md:w-[55%] relative z-[2]">
+               <div className="w-full md:w-[55%] relative z-[2] flex items-center justify-center min-h-[280px] md:min-h-0">
                   <div
                      ref={machineRef}
-                     className="absolute inset-0 flex justify-center items-center z-[5] pl-[5%] pt-[3%]"
+                     className="relative md:absolute md:inset-0 flex justify-center items-center z-[5] md:pl-[5%] md:pt-[3%]"
                   >
-                     <div className="relative h-[280px] md:h-[500px] w-auto">
+                     <div className="relative h-[220px] md:h-[500px] w-auto">
                         <img
                            src="/hero/tilted.png"
                            alt="Smart vending machine for brands"
@@ -226,7 +226,7 @@ export default function SellHero() {
                         <Image
                            src={item.label}
                            alt=""
-                           className="w-[50px] h-[50px] lg:w-[85px] lg:h-[85px] object-contain"
+                           className="w-[40px] h-[40px] lg:w-[65px] lg:h-[65px] object-contain"
                            width={50}
                            height={50}
                         />

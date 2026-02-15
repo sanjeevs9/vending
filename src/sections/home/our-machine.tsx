@@ -2,7 +2,7 @@
 
 export default function OurMachine() {
    return (
-      <section className="w-full min-h-[100vh] flex items-center px-[2vw] xl:px-[28px] py-[2vh] relative max-w-[1400px] mx-auto">
+      <section className="w-full min-h-0 md:min-h-[100vh] flex items-center px-[2vw] xl:px-[28px] py-[4vh] md:py-[2vh] relative max-w-[1400px] mx-auto">
          <div className="w-full h-full flex flex-col md:flex-row rounded-2xl overflow-hidden">
             {/* Left side with dark background and text */}
             <div className="w-full md:w-1/2 bg-black text-white p-[3vh] md:p-[5vh] flex flex-col justify-center">
@@ -48,7 +48,7 @@ export default function OurMachine() {
 
             {/* Right side with vending machine image */}
             <div className="w-full md:w-1/2 bg-gray-100">
-               <div className="w-full h-full relative">
+               <div className="w-full h-full relative min-h-[250px] md:min-h-0">
                   <img
                      src="/machine/img1.jpg"
                      alt="Vending Machines"

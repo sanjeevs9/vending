@@ -50,7 +50,7 @@ export default function SellContact() {
       <section
          id="sell-contact-section"
          ref={sectionRef}
-         className="relative w-full py-[10vh] overflow-hidden"
+         className="relative w-full py-[6vh] md:py-[10vh] overflow-hidden"
       >
          <div
             ref={contentRef}

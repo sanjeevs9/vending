@@ -81,7 +81,7 @@ export default function SellFeatures() {
                   return (
                      <div key={idx} className={`grid grid-cols-1 lg:grid-cols-2 gap-[4vw] md:gap-[5vw] items-center ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
                         {/* Image */}
-                        <div className={`relative ${isSmallImage ? 'max-w-[200px] lg:max-w-[200px]' : 'max-w-[400px] lg:max-w-none'} mx-auto ${!isEven ? 'lg:col-start-2' : ''}`}>
+                        <div className={`relative ${isSmallImage ? 'max-w-[140px] md:max-w-[180px] lg:max-w-[200px]' : 'max-w-[280px] md:max-w-[400px] lg:max-w-none'} mx-auto ${!isEven ? 'lg:col-start-2' : ''}`}>
                            <Image
                               src={feature.image}
                               alt={feature.title}

@@ -77,9 +77,9 @@ export default function SmartVendingLandingPage() {
             
 
             {/* Main content — split layout */}
-            <div className="flex flex-col md:flex-row justify-between flex-grow min-h-[90vh]">
+            <div className="flex flex-col md:flex-row justify-between flex-grow min-h-0 md:min-h-[90vh]">
                {/* Left side — text content */}
-               <div className="flex flex-col justify-center items-center md:items-start w-full md:w-[45%] mb-[5vh] md:mb-0 pt-6 md:pt-0">
+               <div className="flex flex-col justify-center items-center md:items-start w-full md:w-[45%] mb-[3vh] md:mb-0 pt-6 md:pt-0">
                   <h1 className="text-[#1a1a1a] text-[8vw] md:text-[6vw] lg:text-[4.5vw] xl:text-[56px] font-bold leading-[1.1] mb-[3vh] text-center md:text-left">
                      Snack{' '}
                      <ContainerTextFlip
@@ -118,10 +118,10 @@ export default function SmartVendingLandingPage() {
                </div>
 
                {/* Right side — vending machine on the blob */}
-               <div className="w-full md:w-[55%] relative z-[2] overflow-hidden">
+               <div className="w-full md:w-[55%] relative z-[2] flex items-center justify-center min-h-[320px] md:min-h-0">
                   {/* Main vending machine */}
-                  <div className="absolute inset-0 flex justify-center items-center z-[5] pt-10 pl-10">
-                     <div className="relative h-[280px] md:h-[600px] w-auto">
+                  <div className="relative md:absolute md:inset-0 flex justify-center items-center z-[5] md:pt-10 md:pl-10">
+                     <div className="relative h-[260px] md:h-[600px] w-auto">
                         <img
                            src="/hero/tilted.png"
                            alt="Smart vending machine with snacks"

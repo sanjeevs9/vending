@@ -43,6 +43,8 @@ export default function SellOnboarding() {
    ];
 
    useGSAP(() => {
+      const isDesktop = window.innerWidth >= 768;
+
       // Heading fade in
       gsap.from(headingRef.current, {
          y: 30,
@@ -51,6 +53,9 @@ export default function SellOnboarding() {
          ease: 'power2.out',
          scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' }
       });
+
+      // Only run pinned scroll animation on desktop
+      if (!isDesktop) return;
 
       // Set initial state — all cards hidden below
       const refs = stepRefs.map((r) => r.current).filter(Boolean);
@@ -89,7 +94,7 @@ export default function SellOnboarding() {
    return (
       <section
          ref={sectionRef}
-         className="w-full min-h-screen flex items-center   overflow-hidden"
+         className="w-full md:min-h-screen flex items-center py-[5vh] md:py-0 overflow-hidden"
       >
          <div className="max-w-[1100px] w-full mx-auto px-[4vw] md:px-[5vw] xl:px-[48px]">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-[3vh] md:gap-[5vw]">
@@ -104,7 +109,7 @@ export default function SellOnboarding() {
                      <br />
                      Simple integration. Scalable distribution.
                   </p>
-                  <div className="max-w-[280px] lg:max-w-[320px] mx-auto md:mx-0 mt-auto">
+                  <div className="hidden md:block max-w-[180px] lg:max-w-[220px] mx-auto md:mx-0 mt-auto">
                      <Image
                         src={vendingImg}
                         alt="Vending machine"
