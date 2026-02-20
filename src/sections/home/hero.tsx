@@ -1,8 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { ContainerTextFlip } from '@/components/ui/container-text-flip';
 import Navbar from '@/components/navbar';
+import Image from 'next/image';
+import heroTiltedImg from '../../../public/hero/tilted.png';
 
 export default function SmartVendingLandingPage() {
    const handleScroll = (sectionId: string) => {
@@ -121,11 +122,15 @@ export default function SmartVendingLandingPage() {
                <div className="w-full md:w-[55%] relative z-[2] flex items-center justify-center min-h-[320px] md:min-h-0">
                   {/* Main vending machine */}
                   <div className="relative md:absolute md:inset-0 flex justify-center items-center z-[5] md:pt-10 md:pl-10">
-                     <div className="relative h-[260px] md:h-[600px] w-auto">
-                        <img
-                           src="/hero/tilted.png"
+                     <div className="relative h-[260px] md:h-[600px] w-[200px] md:w-[460px]">
+                        <Image
+                           src={heroTiltedImg}
                            alt="Smart vending machine with snacks"
-                           className="h-full w-auto object-contain drop-shadow-[0_15px_50px_rgba(0,0,0,0.15)]"
+                           placeholder="blur"
+                           priority
+                           fill
+                           sizes="(max-width: 768px) 200px, 460px"
+                           className="object-contain drop-shadow-[0_15px_50px_rgba(0,0,0,0.15)]"
                         />
                      </div>
                   </div>

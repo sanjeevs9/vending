@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import Navbar from '@/components/navbar';
@@ -12,6 +11,7 @@ import brand4Img from "../../../public/vectors/sell/products/4.png";
 import brand5Img from "../../../public/vectors/sell/products/5.png";
 import brand6Img from "../../../public/vectors/sell/products/6.png";
 import brand7Img from "../../../public/vectors/sell/products/7.png";
+import heroTiltedImg from "../../../public/hero/tilted.png";
 import Image from 'next/image';
 
 
@@ -199,11 +199,15 @@ export default function SellHero() {
                      ref={machineRef}
                      className="relative md:absolute md:inset-0 flex justify-center items-center z-[5] md:pl-[5%] md:pt-[3%]"
                   >
-                     <div className="relative h-[220px] md:h-[500px] w-auto">
-                        <img
-                           src="/hero/tilted.png"
+                     <div className="relative h-[220px] md:h-[500px] w-[170px] md:w-[380px]">
+                        <Image
+                           src={heroTiltedImg}
                            alt="Smart vending machine for brands"
-                           className="h-full w-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+                           placeholder="blur"
+                           priority
+                           fill
+                           sizes="(max-width: 768px) 170px, 380px"
+                           className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
                         />
                      </div>
                   </div>

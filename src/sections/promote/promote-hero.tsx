@@ -1,10 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import Navbar from '@/components/navbar';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { useRef } from 'react';
+import Image from 'next/image';
+import heroFrontImg from '../../../public/hero/front.png';
 
 gsap.registerPlugin(useGSAP);
 
@@ -159,11 +160,15 @@ export default function PromoteHero() {
                      ref={machineRef}
                      className="relative md:absolute md:inset-0 flex justify-center items-center z-[5] md:pl-[5%] md:pt-[3%]"
                   >
-                     <div className="relative h-[220px] md:h-[500px] w-auto">
-                        <img
-                           src="/hero/front.png"
+                     <div className="relative h-[220px] md:h-[500px] w-[160px] md:w-[360px]">
+                        <Image
+                           src={heroFrontImg}
                            alt="Snackit vending machine with brand advertising"
-                           className="h-full w-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+                           placeholder="blur"
+                           priority
+                           fill
+                           sizes="(max-width: 768px) 160px, 360px"
+                           className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
                         />
                         {/* Branding highlight overlay */}
                         <div className="absolute inset-0 pointer-events-none">
