@@ -203,7 +203,6 @@ export default function SellHero() {
                         <Image
                            src={heroTiltedImg}
                            alt="Smart vending machine for brands"
-                           placeholder="blur"
                            priority
                            fill
                            sizes="(max-width: 768px) 170px, 380px"

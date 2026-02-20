@@ -164,7 +164,6 @@ export default function PromoteHero() {
                         <Image
                            src={heroFrontImg}
                            alt="Snackit vending machine with brand advertising"
-                           placeholder="blur"
                            priority
                            fill
                            sizes="(max-width: 768px) 160px, 360px"

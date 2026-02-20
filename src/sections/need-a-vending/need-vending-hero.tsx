@@ -181,7 +181,6 @@ export default function NeedVendingHero() {
                         <Image
                            src={heroFrontImg}
                            alt="Smart vending machine"
-                           placeholder="blur"
                            priority
                            fill
                            sizes="(max-width: 768px) 180px, 360px"

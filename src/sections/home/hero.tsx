@@ -126,7 +126,6 @@ export default function SmartVendingLandingPage() {
                         <Image
                            src={heroTiltedImg}
                            alt="Smart vending machine with snacks"
-                           placeholder="blur"
                            priority
                            fill
                            sizes="(max-width: 768px) 200px, 460px"
