@@ -57,22 +57,21 @@ export default function SellOnboarding() {
       // Only run pinned scroll animation on desktop
       if (!isDesktop) return;
 
-      // Set initial state — all cards hidden below
       const refs = stepRefs.map((r) => r.current).filter(Boolean);
-      gsap.set(refs.slice(1), {
-         y: '400%',
-         opacity: 0
-      });
 
-      // Pinned scrub timeline — each card scrolls in one by one
+      // Cards 2-4 start slightly below and invisible (subtle, not 400%)
+      gsap.set(refs.slice(1), { y: 50, opacity: 0 });
+
+      // Pinned scrub timeline
       const tl = gsap.timeline({
          scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top top',
-            end: '+=250%',
-            scrub: 1.5,
+            end: '+=150%',
+            scrub: 1,
             pin: true,
-            anticipatePin: 1
+            anticipatePin: 1,
+            invalidateOnRefresh: true
          }
       });
 
@@ -83,10 +82,10 @@ export default function SellOnboarding() {
             {
                y: 0,
                opacity: 1,
-               ease: 'power4.out',
+               ease: 'power2.out',
                duration: 1
             },
-            '+=0.3'
+            '+=0.2'
          );
       });
    }, []);
@@ -94,9 +93,9 @@ export default function SellOnboarding() {
    return (
       <section
          ref={sectionRef}
-         className="relative w-full md:min-h-screen flex items-center py-[5vh] md:py-0 overflow-hidden bg-white z-10"
+         className="relative w-full md:min-h-screen bg-white"
       >
-         <div className="max-w-[1100px] w-full mx-auto px-[4vw] md:px-[5vw] xl:px-[48px]">
+         <div className="max-w-[1100px] w-full mx-auto px-[4vw] md:px-[5vw] xl:px-[48px] py-[5vh] md:py-[10vh]">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-[3vh] md:gap-[5vw]">
                <div ref={headingRef} className="md:w-[40%] md:flex-shrink-0 flex flex-col">
                   <h2 className="text-[22px] md:text-[3vw] lg:text-[2.4vw] xl:text-[32px] font-bold text-[#1a1a1a] leading-tight mb-[1vh]">
