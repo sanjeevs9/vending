@@ -18,13 +18,13 @@ import Image from 'next/image';
 gsap.registerPlugin(useGSAP);
 
 const floatingItems = [
-   { label: brand1Img, top: '8%',  right: '16%', left: undefined, bottom: undefined },
-   { label: brand2Img, top: '30%', right: '2%',  left: undefined, bottom: undefined },
-   { label: brand3Img, top: undefined, right: '12%', left: undefined, bottom: '18%' },
-   { label: brand4Img, top: '12%', right: undefined, left: '4%',  bottom: undefined },
-   { label: brand5Img, top: '48%', right: undefined, left: '0%',  bottom: undefined },
-   { label: brand6Img, top: undefined, right: undefined, left: '8%', bottom: '12%' },
-   { label: brand7Img, top: undefined, right: '0%',  left: undefined, bottom: '42%' }
+   { label: brand1Img, top: '5%',  right: '8%',  left: undefined, bottom: undefined, size: 'w-[50px] h-[50px] lg:w-[100px] lg:h-[100px]' },
+   { label: brand2Img, top: '22%', right: '-2%', left: undefined, bottom: undefined, size: 'w-[45px] h-[45px] lg:w-[85px] lg:h-[85px]' },
+   { label: brand3Img, top: undefined, right: '5%',  left: undefined, bottom: '10%', size: 'w-[50px] h-[50px] lg:w-[95px] lg:h-[95px]' },
+   { label: brand4Img, top: '6%',  right: undefined, left: '0%',  bottom: undefined, size: 'w-[45px] h-[45px] lg:w-[90px] lg:h-[90px]' },
+   { label: brand5Img, top: '42%', right: undefined, left: '-3%', bottom: undefined, size: 'w-[50px] h-[50px] lg:w-[100px] lg:h-[100px]' },
+   { label: brand6Img, top: undefined, right: undefined, left: '2%', bottom: '8%',  size: 'w-[45px] h-[45px] lg:w-[88px] lg:h-[88px]' },
+   { label: brand7Img, top: undefined, right: '-1%', left: undefined, bottom: '38%', size: 'w-[48px] h-[48px] lg:w-[92px] lg:h-[92px]' }
 ];
 
 export default function SellHero() {
@@ -226,9 +226,9 @@ export default function SellHero() {
                         <Image
                            src={item.label}
                            alt=""
-                           className="w-[40px] h-[40px] lg:w-[65px] lg:h-[65px] object-contain"
-                           width={50}
-                           height={50}
+                           className={`${item.size} object-contain`}
+                           width={100}
+                           height={100}
                         />
                      </div>
                   ))}
