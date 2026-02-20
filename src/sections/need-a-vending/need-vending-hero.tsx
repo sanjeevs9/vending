@@ -77,13 +77,13 @@ export default function NeedVendingHero() {
             <div className="flex flex-col md:flex-row justify-between flex-grow min-h-0 md:min-h-[90vh] px-[3vw] md:px-[4vw] xl:px-[56px]">
                {/* Left — text content */}
                <div className="flex flex-col justify-center items-center md:items-start w-full md:w-[45%] mb-[3vh] md:mb-0 pt-6 md:pt-0">
-                  <span
+                  {/* <span
                      ref={tagRef}
                      className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 text-primary text-[10px] md:text-[1.2vw] lg:text-[0.85vw] xl:text-[12px] font-semibold tracking-[0.15em] uppercase rounded-full px-[14px] py-[6px] md:px-[1.5vw] md:py-[0.8vh] xl:px-[18px] xl:py-[8px] mb-[3vh]"
                   >
                      <span className="w-[6px] h-[6px] rounded-full bg-primary animate-pulse" />
                      Vending Solutions
-                  </span>
+                  </span> */}
 
                   <h1
                      ref={headingRef}
