@@ -59,7 +59,7 @@ export default function SellFeatures() {
       <section
          id="sell-features-section"
          ref={sectionRef}
-         className="relative w-full bg-white py-[5vh] md:py-[8vh] overflow-hidden z-0"
+         className="relative w-full bg-white py-[5vh] md:py-[8vh] overflow-hidden z-20"
       >
          <div className="relative z-0 max-w-[1100px] mx-auto px-[4vw] md:px-[5vw] xl:px-[48px]">
             {/* Section header - Centered */}

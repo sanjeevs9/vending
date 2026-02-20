@@ -94,7 +94,7 @@ export default function SellOnboarding() {
    return (
       <section
          ref={sectionRef}
-         className="w-full md:min-h-screen flex items-center py-[5vh] md:py-0 overflow-hidden"
+         className="relative w-full md:min-h-screen flex items-center py-[5vh] md:py-0 overflow-hidden bg-white z-10"
       >
          <div className="max-w-[1100px] w-full mx-auto px-[4vw] md:px-[5vw] xl:px-[48px]">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-[3vh] md:gap-[5vw]">
