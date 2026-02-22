@@ -45,14 +45,58 @@ export default function PromoteHero() {
          ref={containerRef}
          className="relative w-full min-h-screen overflow-hidden bg-[#f5f5f5]"
       >
-         {/* Subtle bg accent */}
-         <div
-            className="absolute top-[-20%] left-[-10%] w-[60%] h-[120%] pointer-events-none z-0 rounded-full"
-            style={{
-               background:
-                  'radial-gradient(ellipse at center, rgba(231,0,11,0.03) 0%, transparent 70%)'
-            }}
-         />
+         {/* === ORGANIC SHAPE BEHIND MACHINE === */}
+         <svg
+            className="absolute top-[2%] right-[-8%] w-[65%] h-[95%] pointer-events-none z-[1]"
+            viewBox="0 0 600 700"
+            xmlns="http://www.w3.org/2000/svg"
+         >
+            {/* Main flowing shape — brand gold */}
+            <path
+               d="M520,50 C600,150 580,300 540,420 C500,540 420,650 300,680 C180,710 80,640 40,500 C0,360 30,200 120,100 C210,0 380,-30 520,50 Z"
+               fill="#FDB12B"
+               opacity="0.15"
+            />
+            {/* Inner accent shape */}
+            <path
+               d="M480,120 C540,190 530,310 490,410 C450,510 370,580 270,590 C170,600 100,540 80,430 C60,320 90,200 170,130 C250,60 380,60 480,120 Z"
+               fill="#FDB12B"
+               opacity="0.2"
+            />
+         </svg>
+
+         {/* Small golden circle — top right */}
+         <div className="absolute top-[8vh] right-[5vw] w-[4vw] h-[4vw] rounded-full bg-[#FDB12B]/15 pointer-events-none z-[1]" />
+         {/* Tiny gold dot — left area */}
+         <div className="absolute top-[35%] left-[42%] w-[8px] h-[8px] rounded-full bg-[#FDB12B]/25 pointer-events-none z-[1]" />
+
+         {/* === GOLDEN WAVY PATTERNS AT BOTTOM === */}
+         <svg
+            className="absolute bottom-0 left-0 w-full pointer-events-none z-[2]"
+            viewBox="0 0 1440 300"
+            preserveAspectRatio="none"
+            style={{ height: '30vh' }}
+            xmlns="http://www.w3.org/2000/svg"
+         >
+            {/* Back wave — deep gold */}
+            <path
+               d="M0,200 C180,140 360,260 540,180 C720,100 900,240 1080,160 C1260,80 1380,180 1440,150 L1440,300 L0,300 Z"
+               fill="#D4960A"
+               opacity="0.3"
+            />
+            {/* Middle wave — brand gold */}
+            <path
+               d="M0,220 C200,170 400,280 600,200 C800,120 1000,260 1200,190 C1350,140 1440,200 1440,200 L1440,300 L0,300 Z"
+               fill="#FDB12B"
+               opacity="0.5"
+            />
+            {/* Front wave — bright gold */}
+            <path
+               d="M0,250 C160,210 340,290 520,240 C700,190 880,280 1060,230 C1240,180 1380,250 1440,240 L1440,300 L0,300 Z"
+               fill="#FDB12B"
+               opacity="0.8"
+            />
+         </svg>
 
          <div className="relative z-10 w-full h-full flex flex-col max-w-[1700px] mx-auto">
             <Navbar />

@@ -4,7 +4,7 @@ import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
 
 const servings = [
    {
-      title: 'SANCKS',
+      title: 'SNACKS',
       tag: 'Tasty & crispy',
       image: '/servings/img3.jpg'
    },

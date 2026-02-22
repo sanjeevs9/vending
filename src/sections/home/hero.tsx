@@ -4,8 +4,31 @@ import { ContainerTextFlip } from '@/components/ui/container-text-flip';
 import Navbar from '@/components/navbar';
 import Image from 'next/image';
 import heroTiltedImg from '../../../public/hero/tilted.png';
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap';
+import { useRef } from 'react';
+
+gsap.registerPlugin(useGSAP);
 
 export default function SmartVendingLandingPage() {
+   const headingRef = useRef<HTMLHeadingElement>(null);
+   const subtitleRef = useRef<HTMLParagraphElement>(null);
+   const ctaRef = useRef<HTMLDivElement>(null);
+   const machineRef = useRef<HTMLDivElement>(null);
+
+   useGSAP(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      tl.from(headingRef.current, { y: 60, opacity: 0, duration: 0.9 })
+         .from(subtitleRef.current, { y: 30, opacity: 0, duration: 0.7 }, '-=0.5')
+         .from(ctaRef.current, { y: 20, opacity: 0, duration: 0.5 }, '-=0.3')
+         .from(
+            machineRef.current,
+            { y: 80, opacity: 0, duration: 1, ease: 'power2.out' },
+            '-=0.7'
+         );
+   }, []);
+
    const handleScroll = (sectionId: string) => {
       const section = document.getElementById(sectionId);
       if (section) {
@@ -81,7 +104,7 @@ export default function SmartVendingLandingPage() {
             <div className="flex flex-col md:flex-row justify-between flex-grow min-h-0 md:min-h-[90vh]">
                {/* Left side — text content */}
                <div className="flex flex-col justify-center items-center md:items-start w-full md:w-[45%] mb-[3vh] md:mb-0 pt-6 md:pt-0">
-                  <h1 className="text-[#1a1a1a] text-[8vw] md:text-[6vw] lg:text-[4.5vw] xl:text-[56px] font-bold leading-[1.1] mb-[3vh] text-center md:text-left">
+                  <h1 ref={headingRef} className="text-[#1a1a1a] text-[8vw] md:text-[6vw] lg:text-[4.5vw] xl:text-[56px] font-bold leading-[1.1] mb-[3vh] text-center md:text-left">
                      Snack{' '}
                      <ContainerTextFlip
                         words={[
@@ -95,14 +118,14 @@ export default function SmartVendingLandingPage() {
                      Work Better
                   </h1>
 
-                  <p className="text-[#1a1a1a]/40 text-[14px] md:text-[2vw] lg:text-[1.3vw] xl:text-[18px] mb-[4vh] tracking-wide text-center md:text-left">
+                  <p ref={subtitleRef} className="text-[#1a1a1a]/40 text-[14px] md:text-[2vw] lg:text-[1.3vw] xl:text-[18px] mb-[4vh] tracking-wide text-center md:text-left">
                      Redefining Convenience Through Smart
                      <br />
                      Vending Machines
                   </p>
 
                   {/* CTA Buttons */}
-                  <div className="flex items-center justify-center md:justify-start gap-[10px] md:gap-[2vw]">
+                  <div ref={ctaRef} className="flex items-center justify-center md:justify-start gap-[10px] md:gap-[2vw]">
                      <button
                         onClick={() => handleScroll('contact-section')}
                         className="bg-primary hover:bg-primary-dark text-white font-bold rounded-full px-[16px] md:px-[2.5vw] xl:px-[32px] py-[8px] md:py-[1.8vh] xl:py-[14px] text-[11px] md:text-[1.5vw] lg:text-[1vw] xl:text-[14px] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(231,0,11,0.3)]"
@@ -121,7 +144,7 @@ export default function SmartVendingLandingPage() {
                {/* Right side — vending machine on the blob */}
                <div className="w-full md:w-[55%] relative z-[2] flex items-center justify-center min-h-[320px] md:min-h-0">
                   {/* Main vending machine */}
-                  <div className="relative md:absolute md:inset-0 flex justify-center items-center z-[5] md:pt-10 md:pl-10">
+                  <div ref={machineRef} className="relative md:absolute md:inset-0 flex justify-center items-center z-[5] md:pt-10 md:pl-10">
                      <div className="relative h-[260px] md:h-[600px] w-[200px] md:w-[460px]">
                         <Image
                            src={heroTiltedImg}
