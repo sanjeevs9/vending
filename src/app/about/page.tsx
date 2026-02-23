@@ -2,6 +2,7 @@ import AboutContent from '@/sections/about/about-content';
 import AboutFaq from '@/sections/about/about-faq';
 import AboutHero from '@/sections/about/about-hero';
 import AboutLocation from '@/sections/about/about-location';
+import AboutRebrand from '@/sections/about/about-rebrand';
 import Footer from '@/sections/footer';
 import GoogleReviews from '@/components/google-reviews';
 import MediaAndUs from '@/sections/media-and-us';
@@ -19,6 +20,7 @@ export default function AboutPage() {
    return (
       <div className="overflow-hidden">
          <AboutHero />
+         <AboutRebrand />
          <AboutContent />
          <AboutPurpose />
          <WhatWeBringSection />
