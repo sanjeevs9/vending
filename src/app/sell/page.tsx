@@ -1,5 +1,6 @@
 import Footer from '@/sections/footer';
 import GoogleReviews from '@/components/google-reviews';
+import MediaAndUs from '@/sections/media-and-us';
 import SellContact from '@/sections/sell/sell-contact';
 import SellFaq from '@/sections/sell/sell-faq';
 import SellFeatures from '@/sections/sell/sell-features';
@@ -18,6 +19,7 @@ export default function SellPage() {
          <SellHero />
          <SellFeatures />
          <SellOnboarding />
+         <MediaAndUs />
          <GoogleReviews />
          <SellFaq />
          <SellContact />

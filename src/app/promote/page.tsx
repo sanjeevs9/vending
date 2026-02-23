@@ -1,5 +1,6 @@
 import Footer from '@/sections/footer';
 import GoogleReviews from '@/components/google-reviews';
+import MediaAndUs from '@/sections/media-and-us';
 import PromoteContact from '@/sections/promote/promote-contact';
 import PromoteFaq from '@/sections/promote/promote-faq';
 import PromoteFeatures from '@/sections/promote/promote-features';
@@ -16,6 +17,7 @@ export default function PromotePage() {
       <div className="overflow-hidden">
          <PromoteHero />
          <PromoteFeatures />
+         <MediaAndUs />
          <GoogleReviews />
          <PromoteFaq />
          <PromoteContact />

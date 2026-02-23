@@ -4,6 +4,7 @@ import AboutHero from '@/sections/about/about-hero';
 import AboutLocation from '@/sections/about/about-location';
 import Footer from '@/sections/footer';
 import GoogleReviews from '@/components/google-reviews';
+import MediaAndUs from '@/sections/media-and-us';
 import WhatWeBringSection from '@/sections/about/about-what-we-bring';
 
 import AboutPurpose from '@/sections/about/about-purpose';
@@ -21,6 +22,7 @@ export default function AboutPage() {
          <AboutContent />
          <AboutPurpose />
          <WhatWeBringSection />
+         <MediaAndUs />
          <GoogleReviews />
          <AboutFaq />
          <AboutLocation />

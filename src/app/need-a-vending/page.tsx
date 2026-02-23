@@ -1,4 +1,5 @@
 import Footer from '@/sections/footer';
+import MediaAndUs from '@/sections/media-and-us';
 import NeedVendingContact from '@/sections/need-a-vending/need-vending-contact';
 import NeedVendingFaq from '@/sections/need-a-vending/need-vending-faq';
 import NeedVendingFeatures from '@/sections/need-a-vending/need-vending-features';
@@ -20,6 +21,7 @@ export default function NeedAVendingPage() {
          <NeedVendingFeatures />
          <NeedVendingTrust />
          <NeedVendingSmartCard />
+         <MediaAndUs />
          <GoogleReviews />
          <NeedVendingFaq />
          <NeedVendingContact />

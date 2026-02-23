@@ -1,9 +1,9 @@
 import About from '@/sections/home/about';
 import ActionsVerbs from '@/sections/home/actions-verbs';
 import ContactUs from '@/sections/home/contact';
-import FeaturedBy from '@/sections/home/featured-by';
 import Footer from '@/sections/footer';
 import Hero from '@/sections/home/hero';
+import MediaAndUs from '@/sections/media-and-us';
 import OurMachine from '@/sections/home/our-machine';
 import Servings from '@/sections/home/servings';
 import VendingRequirements from '@/sections/home/what-we-need';
@@ -17,7 +17,8 @@ export default function Home() {
 
          <ActionsVerbs />
 
-         <FeaturedBy />
+         {/* <FeaturedBy /> */}
+
 
          <VendingRequirements />
 
@@ -26,6 +27,7 @@ export default function Home() {
          <OurMachine />
 
          <Servings />
+         <MediaAndUs />
 
          <ContactUs />
 
